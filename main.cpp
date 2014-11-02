@@ -8,7 +8,6 @@
 //
 #define OCTET_BULLET 1
 #include "../../octet.h"
-#include <cmath>
 #include "minecraft_wars.h"
 
 /// Create a box with octet
