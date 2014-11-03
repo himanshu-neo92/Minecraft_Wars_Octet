@@ -16,10 +16,15 @@ namespace octet {
     Player_ID = 0,
     Element_ID = 1,
     Player_Element_ID = 2,
-    AI_ID = 3
+    AI_ID = 3,
+    Pickup_ID =4
   };
 
-
+  enum ID_Pickup
+  {
+    Health_ID =0,
+    Ammo_ID =1
+  };
   enum ID_Element
   {
     Mud_ID = 0,
@@ -98,16 +103,17 @@ namespace octet {
       
     }
 
-    void Got_Hit(float damage)
+    bool Got_Hit(float damage)
     {
       if (health - damage < 0.0f)
       {
-        //dead go to end screen
+        return false;
       }
 
       else
       {
         health -= damage;
+        return true;
       }
     }
 
@@ -130,11 +136,45 @@ namespace octet {
       ammo[weapon_nu] += amount;
     }
 
-    void Weapon_fired(int weapon_nu)
+    bool Weapon_fired(int weapon_nu)
     {
+      if (ammo[weapon_nu]>0)
+      { 
       --ammo[weapon_nu];
+      return true;
+      }
+      return false;
     }
-  }; 
+  };
+  
+  struct AI
+  {
+    float health;
+    int index;
+    float damage;
+    bool canattack;
+    float framestoattack;
+    float tempframes;
+    AI(int _index)
+    {
+      health = 50.0f;
+      damage = 0.05f;
+      index = _index;
+    }
+   
+    bool Got_Hit(float damage)
+    {
+      if (health - damage > 0.0f)
+      {
+        health -= damage;
+        return true;
+      }      
+        return true;
+      
+    }
+    
+
+  };
 
   ///The base struct for all the elements.Use this in the userpointer and call the derived class constr to init this.
   struct Elements
@@ -287,6 +327,8 @@ namespace octet {
 
     dynarray<CollisionObjects*> Game_objects; //the game objects this contains the rigidbodies gameobj class and the id for the object.
     dynarray<scene_node*> nodes; // the nodes for the game just used for the rendering
+
+    dynarray<CollisionObjects*> Enemies;
     int map_grid[100][20][100];
 
     bool gathering;//this indicates that the player is gather something so deactivate all conts
@@ -299,6 +341,14 @@ namespace octet {
     float  framecount_placing;//multiplay this with 30*nu of sec to place the item and then chk of frams
     float tempframe_placing;//set =0 when placing chk with framecount to see if can gather or not 
 
+    float framecount_place_enemy;//the min frams after which the enemies will come to attack the player
+    float tempframe_place_enemy;
+    float nu_enemies;//number of enemies to make 
+    bool activate_enemies;//activate the enemies after the framecount is complete
+
+    bool canjump;
+    float framecount_jump;
+    float tempframecount_jump;
 
     Elements *element;//the element we are gathering 
 
@@ -318,7 +368,7 @@ namespace octet {
 
     //the material
     ref<material> shiningbox;
-
+    ref<material> enemy_material;
     //parameter value
     float shnnval = 32;
     vec3 amb;
@@ -334,6 +384,8 @@ namespace octet {
 
 
     btCollisionShape *elementshape;
+    btCollisionShape *enemyshape;
+
     void mapmaker()
     {
       mat4t modelToWorld;
@@ -407,7 +459,7 @@ namespace octet {
       modelToWorld.translate(0, -4, 0);
       btMatrix3x3 matrix(get_btMatrix3x3(modelToWorld));
       btVector3 pos(get_btVector3(modelToWorld[3].xyz()));
-      btCollisionShape *shape = new btBoxShape(get_btVector3(vec3(400, 4, 400)));
+      btCollisionShape *shape = new btBoxShape(get_btVector3(vec3(1500, 4, 1500)));
       btTransform transform(matrix, pos);
       btDefaultMotionState *motionState = new btDefaultMotionState(transform);
       btScalar mass = 0.0f;
@@ -420,7 +472,7 @@ namespace octet {
       rigid_body->setUserPointer(Plane);
       Game_objects.push_back(Plane);
 
-      mesh_box *box = new mesh_box(vec3(400, 4, 400));
+      mesh_box *box = new mesh_box(vec3(1500, 4, 1500));
       scene_node *node = new scene_node(modelToWorld, atom_);
       nodes.push_back(node);
       app_scene->add_child(node);
@@ -530,12 +582,12 @@ namespace octet {
             normaldir.normalize();
             printf("body pos : %f %f %f \n shot pos : %f %f %f \n normal force pos %f %f %f\n\n ",pos.x(),pos.y(),pos.z(),hitpoint.x(),hitpoint.y(),hitpoint.z(),normaldir.x(),normaldir.y(),normaldir.z());
             
-            float forcemult = 1000.0f;
+            float forcemult = 2000.0f;
             if (Objuserpointer->getid()==ID_Object::AI_ID)
             {
               //dead damage
             }
-            tempbody->applyImpulse(btVector3(forcemult, forcemult, forcemult), normaldir);
+            tempbody->applyImpulse(btVector3(forcemult*normaldir.x(), forcemult*normaldir.y(), forcemult*normaldir.z()), normaldir);
             
           }
         }
@@ -574,9 +626,11 @@ namespace octet {
         }
       }
 
-      if (is_key_down(key::key_space) && (Game_objects[The_Player.index]->getbody()->getLinearVelocity().y() < 0.1f && Game_objects[The_Player.index]->getbody()->getLinearVelocity().y() > -0.1f))
+      if (canjump && is_key_down(key::key_space) && (Game_objects[The_Player.index]->getbody()->getLinearVelocity().y() < 0.1f && Game_objects[The_Player.index]->getbody()->getLinearVelocity().y() > -0.1f))
       {
         Game_objects[The_Player.index]->getbody()->applyCentralImpulse(btVector3(0, 150, 0));
+        tempframecount_jump=0;
+        canjump=false;
       }
       if (is_key_down(key::key_up) && (Game_objects[The_Player.index]->getbody()->getLinearVelocity().y() < 0.1f && Game_objects[The_Player.index]->getbody()->getLinearVelocity().y() > -0.1f))
       {
@@ -732,6 +786,127 @@ namespace octet {
       }
     }
 
+    void activateenemies()
+    {
+      if (!activate_enemies)
+      {
+        
+        if (tempframe_place_enemy >= framecount_place_enemy)
+        {
+          activate_enemies=true;  
+          printf("enemies activated !!!");
+          btVector3 playerpos = Game_objects[The_Player.index]->getbody()->getCenterOfMassPosition();
+          random randpos;
+
+          mat4t modelToWorld;
+          enemyshape = new btBoxShape(get_btVector3(vec3(1.0f, 1.0f, 1.0f)));
+          btDefaultMotionState *motionState;
+          btScalar mass = 50.0f;
+          btVector3 inertiaTensor;
+          btRigidBody * rigid_body;
+          CollisionObjects *enemy_object;
+          for (int i = 0; i < nu_enemies; i++)
+          {
+            modelToWorld.loadIdentity();
+
+            randpos.set_seed(((unsigned int)(tempframe_gathering + tempframe_placing + tempframe_place_enemy + tempframe_shooting)) ^ 0x948fab);
+            tempframe_place_enemy+=399959;
+
+            float pos_x;
+            float pos_z;
+            if (i<3)
+            {
+              pos_x = randpos.get(playerpos.x() + 200.0f, playerpos.x() + 500.0f);
+              pos_z = randpos.get(playerpos.z() + 200.0f, playerpos.z() + 500.0f);
+            }
+            else if (i<6)
+              
+            {
+              pos_x = randpos.get(playerpos.x() - 200.0f, playerpos.x() - 500.0f);
+              pos_z = randpos.get(playerpos.z() - 200.0f, playerpos.z() - 500.0f);
+            }
+
+            else if (i<8)
+            {
+              pos_x = randpos.get(playerpos.x() + 200.0f, playerpos.x() + 500.0f);
+              pos_z = randpos.get(playerpos.z() - 200.0f, playerpos.z() - 500.0f);
+            }
+            else
+            {
+              pos_x = randpos.get(playerpos.x() - 200.0f, playerpos.x() - 500.0f);
+              pos_z = randpos.get(playerpos.z() + 200.0f, playerpos.z() + 500.0f);
+
+            }
+            printf("pos_x %f, pos_z %f \n\n",pos_x,pos_z);
+            modelToWorld.translate(pos_x, 10, pos_z);//make this acc to random
+            
+            btMatrix3x3 matrix(get_btMatrix3x3(modelToWorld));
+            btVector3 pos(get_btVector3(modelToWorld[3].xyz()));
+            btTransform transform(matrix, pos);
+            motionState = new btDefaultMotionState(transform);
+            elementshape->calculateLocalInertia(mass, inertiaTensor);
+            rigid_body = new btRigidBody(mass, motionState, elementshape, inertiaTensor);
+            rigid_body->setFriction(1.0f);
+            rigid_body->setCollisionFlags(btCollisionObject::CollisionFlags::CF_CUSTOM_MATERIAL_CALLBACK);
+            world->addRigidBody(rigid_body);
+            rigid_body->setActivationState(DISABLE_DEACTIVATION);
+
+            AI *newAI = new AI(Game_objects.size());
+            enemy_object = new CollisionObjects(ID_Object::AI_ID, rigid_body, newAI);
+            rigid_body->setUserPointer(enemy_object);
+            Enemies.push_back(enemy_object);
+            Game_objects.push_back(enemy_object);
+
+            mesh_box *box = new mesh_box(vec3(1, 1,1));
+            scene_node *node = new scene_node(modelToWorld, atom_);
+            nodes.push_back(node);
+            app_scene->add_child(node);
+            app_scene->add_mesh_instance(new mesh_instance(node, box, enemy_material));
+
+
+          }          
+        }
+        else
+        {
+        tempframe_place_enemy++;
+        }
+      }
+    }
+
+    void enemyconts()
+    {
+      if (activate_enemies)
+      {
+        btVector3 playerpos = Game_objects[The_Player.index]->getbody()->getCenterOfMassPosition();
+        for (int i=0;i<Enemies.size();i++)
+        {
+          if (Enemies[i]->getbody()->getLinearVelocity().y() < 0.1f && Enemies[i]->getbody()->getLinearVelocity().y() > - 0.1f)
+          { 
+          btVector3 enpos = Enemies[i]->getbody()->getCenterOfMassPosition();
+          btVector3 relpos = btVector3(playerpos - enpos);
+          relpos.normalize();
+          
+          Enemies[i]->getbody()->applyCentralForce(1000 * btVector3(relpos.x(), 0, relpos.z()));
+          }
+        }
+        
+      }
+    }
+
+    void waitforjump()
+    {
+      if (!canjump)
+      {
+        if (tempframecount_jump >= framecount_jump)
+        {
+          canjump=true;
+        }
+        else
+        {
+        tempframecount_jump++;
+        }
+      }
+    }
 
   public:
     /// this is called when we construct the class before everything is initialised.
@@ -750,6 +925,9 @@ namespace octet {
       delete elementshape;
       for (unsigned int i = 0; i < Game_objects.size(); i++)
         delete Game_objects[i];
+
+      for (unsigned int i = 0; i < Enemies.size(); i++)
+        delete Enemies[i];
     }
 
     /// this is called once OpenGL is initialized
@@ -763,12 +941,16 @@ namespace octet {
       app_scene->get_camera_instance(0)->set_far_plane(1000);
       b = new param_shader("src/examples/minecraft_wars/base_vertex.vs", "src/examples/minecraft_wars/shining.fs");
       shiningbox = new material(vec4(1.0f, 1.0f, 1.0f, 1.0f), b);
-
+      enemy_material = new material(vec4(0, 0, 0, 1));
 
       Add_Rigidbody_to_Cam();
       Create_base();
       mapmaker();
       gContactAddedCallback = minecraftcollision;
+
+      canjump = true;
+      framecount_jump=20.0f;
+
       gathering = false;
       framecount_gathering = 15;
       
@@ -777,6 +959,13 @@ namespace octet {
 
       canshoot=true;
       framecount_shooting = 15.0f;
+
+      framecount_place_enemy = 300;//make this 3000 or so 
+      activate_enemies=false;
+      tempframe_place_enemy =0;
+      nu_enemies=10;
+      
+
       printf("Nodes Size : %i  Game_object Size : %i", nodes.size(), Game_objects.size());
 
       printf("\n%d",'e');
@@ -884,7 +1073,7 @@ namespace octet {
       }
 
       // update matrices. assume 30 fps.
-      app_scene->update(1.0f / 30);
+      app_scene->update(1.0f / 30);      
       /*
       if (b_light)
       {
@@ -919,6 +1108,9 @@ namespace octet {
       placingelement();
       gatheringelement();
       shootreload();
+      activateenemies();
+      enemyconts();
+      waitforjump();
     }
 
     void cam_mouse(int x, int y, HWND *hnd)
