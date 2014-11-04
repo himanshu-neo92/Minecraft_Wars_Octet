@@ -323,24 +323,27 @@ namespace octet {
     Elements *The_Element;
     AI *The_AI;
     Player *The_Player;
-    if ((Obj1userpointer->getid() == ID_Object::AI_ID || Obj2userpointer->getid() == ID_Object::AI_ID) && (Obj1userpointer->getid() != ID_Object::Plane_ID || Obj2userpointer->getid() != ID_Object::Plane_ID))
+    if ((Obj1userpointer->getid() == ID_Object::AI_ID || Obj2userpointer->getid() == ID_Object::AI_ID) && (Obj1userpointer->getid() != ID_Object::Plane_ID && Obj2userpointer->getid() != ID_Object::Plane_ID))
     {
+      
       if (Obj1userpointer->getid() == ID_Object::AI_ID)
       {
         The_AI = (AI*)Obj1userpointer->getobjectclass();
         if (Obj2userpointer->getid() == ID_Object::Player_ID)
         {         
+          printf("AI HIT PLAYER \n");
           The_Player = (Player *)Obj2userpointer->getobjectclass();
           if (!The_Player->Got_Hit(The_AI->attacked()))
           {
-            //Game Over 
+            printf("PLAYER DIED");
           }
         }
 
         if (Obj2userpointer->getid() == ID_Object::Element_ID)
         {
           The_Element = (Elements *)Obj2userpointer->getobjectclass();
-          if(The_Element->Got_Hit(The_AI->attacked()))
+          printf("AI HIT Element \n");
+          if(!The_Element->Got_Hit(The_AI->attacked()))
           {
             Obj2userpointer->getbody()->setMassProps(0, btVector3(0.0f, 0.0f, 0.0f));
             Obj2userpointer->getbody()->setCollisionFlags(btCollisionObject::CollisionFlags::CF_NO_CONTACT_RESPONSE);
@@ -348,9 +351,33 @@ namespace octet {
 
           }
         }
+      }
 
+      if (Obj2userpointer->getid() == ID_Object::AI_ID)
+      {
+        The_AI = (AI*)Obj2userpointer->getobjectclass();
+        if (Obj1userpointer->getid() == ID_Object::Player_ID)
+        {
+          
+          The_Player = (Player *)Obj1userpointer->getobjectclass();
+          if (!The_Player->Got_Hit(The_AI->attacked()))
+          {
+            //Game Over 
+          }
+        }
 
+        if (Obj1userpointer->getid() == ID_Object::Element_ID)
+        {
+          The_Element = (Elements *)Obj1userpointer->getobjectclass();
+          printf("AI HIT Element \n");
+          if (!The_Element->Got_Hit(The_AI->attacked()))
+          {
+            Obj1userpointer->getbody()->setMassProps(0, btVector3(0.0f, 0.0f, 0.0f));
+            Obj1userpointer->getbody()->setCollisionFlags(btCollisionObject::CollisionFlags::CF_NO_CONTACT_RESPONSE);
+            Obj1userpointer->getbody()->translate(btVector3(0, -100, 0));
 
+          }
+        }
       }
 
     }
