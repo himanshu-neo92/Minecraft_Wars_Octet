@@ -15,9 +15,8 @@ namespace octet {
     Plane_ID = -1,
     Player_ID = 0,
     Element_ID = 1,
-    Player_Element_ID = 2,
-    AI_ID = 3,
-    Pickup_ID =4
+    AI_ID = 2,
+    Pickup_ID =3
   };
 
   enum ID_Pickup
@@ -82,6 +81,7 @@ namespace octet {
     int elements_held[Nu_Elements];
     dynarray<int> elements_held_ids[Nu_Elements];
     int ammo[Nu_Weapon];
+    float weapon_damage[Nu_Weapon];
     int current_element;
     int current_weapon;
     int index;//The Index of this class in GameObject dynarry
@@ -98,6 +98,8 @@ namespace octet {
       {
         ammo[i] = 0;
       }
+      weapon_damage[0]=20.0f;
+
       current_element = ID_Element::Mud_ID;
       current_weapon = ID_weapon::Gun_ID;
       
@@ -158,7 +160,7 @@ namespace octet {
     AI(int _index)
     {
       health = 50.0f;
-      damage = 0.05f;
+      damage = 15;
       index = _index;
     }
    
@@ -169,10 +171,36 @@ namespace octet {
         health -= damage;
         return true;
       }      
-        return true;
+        return false;
       
     }
-    
+
+    void updatecanattack()
+    {
+      if (!canattack)
+      { 
+        if (tempframes > framestoattack)
+        {
+          canattack=true;
+        }
+        else
+        {
+          tempframes++;
+        }
+      }    
+    }
+    float attacked()
+    {
+      if (canattack)
+      { 
+      canattack = false;
+      framestoattack = 30;
+      tempframes = 0;
+      return damage;
+      }
+      else
+      return 0.0f;
+    }
 
   };
 
@@ -196,6 +224,17 @@ namespace octet {
       color = _color;
       
     }
+    bool Got_Hit(float damage)
+    {
+      if (health - damage > 0.0f)
+      {
+        health -= damage;
+        return true;
+      }
+      return false;
+
+    }
+
   };
 
   ///The Mud struct derived from the element struc. Only use to init the element
@@ -281,29 +320,39 @@ namespace octet {
   {
     CollisionObjects *Obj1userpointer = (CollisionObjects*)obj1->getCollisionObject()->getUserPointer();
     CollisionObjects *Obj2userpointer = (CollisionObjects*)obj2->getCollisionObject()->getUserPointer();
-    Player *The_player;
-    if ((Obj1userpointer->getid() == ID_Object::Player_ID || Obj1userpointer->getid() == ID_Object::AI_ID) || (Obj2userpointer->getid() == ID_Object::Player_ID || Obj2userpointer->getid() == ID_Object::AI_ID))
+    Elements *The_Element;
+    AI *The_AI;
+    Player *The_Player;
+    if ((Obj1userpointer->getid() == ID_Object::AI_ID || Obj2userpointer->getid() == ID_Object::AI_ID) && (Obj1userpointer->getid() != ID_Object::Plane_ID || Obj2userpointer->getid() != ID_Object::Plane_ID))
     {
-      switch (Obj1userpointer->getid())
+      if (Obj1userpointer->getid() == ID_Object::AI_ID)
       {
-      case ID_Object::Plane_ID:
-        break;
-      case ID_Object::Player_ID:
-        The_player = (Player*)Obj1userpointer->getobjectclass();
+        The_AI = (AI*)Obj1userpointer->getobjectclass();
+        if (Obj2userpointer->getid() == ID_Object::Player_ID)
+        {         
+          The_Player = (Player *)Obj2userpointer->getobjectclass();
+          if (!The_Player->Got_Hit(The_AI->attacked()))
+          {
+            //Game Over 
+          }
+        }
+
+        if (Obj2userpointer->getid() == ID_Object::Element_ID)
+        {
+          The_Element = (Elements *)Obj2userpointer->getobjectclass();
+          if(The_Element->Got_Hit(The_AI->attacked()))
+          {
+            Obj2userpointer->getbody()->setMassProps(0, btVector3(0.0f, 0.0f, 0.0f));
+            Obj2userpointer->getbody()->setCollisionFlags(btCollisionObject::CollisionFlags::CF_NO_CONTACT_RESPONSE);
+            Obj2userpointer->getbody()->translate(btVector3(0, -100, 0));
+
+          }
+        }
+
+
 
       }
 
-      switch (Obj2userpointer->getid())
-      {
-      case ID_Object::Plane_ID:
-        break;
-      case ID_Object::Player_ID:
-        The_player = (Player*)Obj2userpointer->getobjectclass();
-
-      }
-
-      //The_player->Got_Hit(1);
-      //printf("collision b/w Object id : %i, Object id : %i, The Player health is : %f \n", Obj1userpointer->getid(), Obj2userpointer->getid(), The_player->health);
     }
     return false;
   }
@@ -585,7 +634,14 @@ namespace octet {
             float forcemult = 2000.0f;
             if (Objuserpointer->getid()==ID_Object::AI_ID)
             {
-              //dead damage
+            
+              AI *hitAI= (AI *)Objuserpointer->getobjectclass();
+              printf("AI Health %f",hitAI->health);
+              if (!hitAI->Got_Hit(The_Player.weapon_damage[The_Player.current_weapon]))
+              {
+                recycle_enemies(hitAI->index);
+                printf("Enemy died %d",hitAI->index);
+              }
             }
             tempbody->applyImpulse(btVector3(forcemult*normaldir.x(), forcemult*normaldir.y(), forcemult*normaldir.z()), normaldir);
             
@@ -884,9 +940,10 @@ namespace octet {
           { 
           btVector3 enpos = Enemies[i]->getbody()->getCenterOfMassPosition();
           btVector3 relpos = btVector3(playerpos - enpos);
-          relpos.normalize();
-          
-          Enemies[i]->getbody()->applyCentralForce(1000 * btVector3(relpos.x(), 0, relpos.z()));
+          relpos.normalize();          
+          Enemies[i]->getbody()->applyCentralForce(2000 * btVector3(relpos.x(), 0, relpos.z()));
+          AI *thisAI = (AI *)Enemies[i]->getobjectclass();
+          thisAI->updatecanattack();
           }
         }
         
@@ -906,6 +963,45 @@ namespace octet {
         tempframecount_jump++;
         }
       }
+    }
+
+    void recycle_enemies(int _index)
+    {
+      btVector3 pos = Game_objects[_index]->getbody()->getCenterOfMassPosition();
+      random randpos;
+      btVector3 playerpos = Game_objects[The_Player.index]->getbody()->getCenterOfMassPosition();
+      AI *deadAI = (AI *)Game_objects[_index]->getobjectclass();
+      deadAI = new AI(_index);
+      printf("AI Health %f",deadAI->health);
+            
+      randpos.set_seed((unsigned int)_index ^ 0xf963af);
+      float pos_x;
+      float pos_z;
+      if (_index<3)
+      {
+        pos_x = randpos.get(playerpos.x() + 200.0f, playerpos.x() + 500.0f);
+        pos_z = randpos.get(playerpos.z() + 200.0f, playerpos.z() + 500.0f);
+      }
+      else if (_index<6)
+
+      {
+        pos_x = randpos.get(playerpos.x() - 200.0f, playerpos.x() - 500.0f);
+        pos_z = randpos.get(playerpos.z() - 200.0f, playerpos.z() - 500.0f);
+      }
+
+      else if (_index<8)
+      {
+        pos_x = randpos.get(playerpos.x() + 200.0f, playerpos.x() + 500.0f);
+        pos_z = randpos.get(playerpos.z() - 200.0f, playerpos.z() - 500.0f);
+      }
+      else
+      {
+        pos_x = randpos.get(playerpos.x() - 200.0f, playerpos.x() - 500.0f);
+        pos_z = randpos.get(playerpos.z() + 200.0f, playerpos.z() + 500.0f);
+
+      }
+
+      Game_objects[_index]->getbody()->translate(btVector3(pos_x,10,pos_z));      
     }
 
   public:
