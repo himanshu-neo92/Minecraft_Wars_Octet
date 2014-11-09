@@ -483,6 +483,11 @@ namespace octet {
   * This is use to init the element as an iron element
   */
 
+  bool isgameover;
+  /** @var    bool isgameover
+  *   @brief true if the player dies.
+  */
+
   bool AIisfacingobject(btRigidBody *AI, btRigidBody *obj)
   {
     btQuaternion btq = AI->getOrientation();
@@ -531,7 +536,7 @@ namespace octet {
             printf("AI HIT PLAYER \n");
             if (!The_Player->Got_Hit(AI_dmage))
             {
-              printf("PLAYER DIED");
+             isgameover=true; 
             }
           }
         }
@@ -868,6 +873,7 @@ namespace octet {
     /** @var   scene_node *daynightnode
     *   @brief The scene node for the day night cycle objects (sun and moon)
     */
+        
     enum Num_sound
     {
       Num_shoot = 0,
@@ -1660,6 +1666,7 @@ namespace octet {
     */
     void init_player_var()
     {
+      isgameover = false;
       canjump = true;
       framecount_jump = 20.0f;
 
@@ -1704,10 +1711,10 @@ namespace octet {
       // get the defualt font.
       bitmap_font *font = overlay->get_default_font();
       // create a box containing text (in pixels)
-      aabb bb_bot(vec3(vx * 5 / 8, -550, 0.0f), vec3(vx, 200.0f, 0.0f));
+      aabb bb_bot(vec3(vx*7/8, -550, 0.0f), vec3(vx, 200.0f, 0.0f));
       UI_bot = new mesh_text(font, "", &bb_bot);
 
-      aabb bb_top(vec3(vx * 5 / 8, 200, 0.0f), vec3(vx, 200.0f, 0.0f));
+      aabb bb_top(vec3(vx*7/8, 200, 0.0f), vec3(vx, 200.0f, 0.0f));
       UI_top = new mesh_text(font, "", &bb_top);
 
       aabb bb_popup(vec3(vx * 7 / 8, -240, 0.0f), vec3(vx, 200.0f, 0.0f));
@@ -1771,6 +1778,10 @@ namespace octet {
         break;
       case Popup_Msg::Msg_OutOfAmmo:UI_popup->format("!Out Of Ammo!");
         break;
+      }
+      if (isgameover)
+      {
+        UI_popup->format("!Game Over!\n press esc to exit");
       }
       UI_popup->update();
       // draw the text overlay
@@ -1932,6 +1943,7 @@ namespace octet {
       Sound_place = resource_dict::get_sound_handle(AL_FORMAT_MONO16, "src/examples/minecraft_wars/sounds/drop.wav");
       Sound_gather = resource_dict::get_sound_handle(AL_FORMAT_MONO16, "src/examples/minecraft_wars/sounds/hammer.wav");
       alGenSources(4, sources);
+      
     }
     /// this is called to draw the world
     void draw_world(int x, int y, int w, int h) {
@@ -1965,6 +1977,8 @@ namespace octet {
       }
       app_scene->render((float)vx / vy);
 
+      if (!isgameover)
+      {
       Player_cont();
       placingelement();
       gatheringelement();
@@ -1973,6 +1987,7 @@ namespace octet {
       enemyconts();
       waitforjump();
       clearpopup();
+      }
     }
   };
   /**
