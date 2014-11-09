@@ -15,5 +15,6 @@ var searchData=
   ['iron_5fhits',['Iron_Hits',['../namespaceoctet.html#ae8a703c3351a9f48aa7ad96fc57c55b4a05e2baa4de05be589af50ab12a54ab67',1,'octet']]],
   ['iron_5fid',['Iron_ID',['../namespaceoctet.html#a8a658c1664b86192b093101b410d8e22a4199137749094f74e555cde8146bbedf',1,'octet']]],
   ['isday',['isday',['../classoctet_1_1minecraft__wars.html#ad53fa9489507ea201f30c4a929dd0f77',1,'octet::minecraft_wars']]],
-  ['isdead',['isdead',['../structoctet_1_1_a_i.html#a2938e1f9b22f03013d677b42149d5d96',1,'octet::AI']]]
+  ['isdead',['isdead',['../structoctet_1_1_a_i.html#a2938e1f9b22f03013d677b42149d5d96',1,'octet::AI']]],
+  ['isgameover',['isgameover',['../namespaceoctet.html#a5a22a4300513019999dad2034dbd719b',1,'octet']]]
 ];

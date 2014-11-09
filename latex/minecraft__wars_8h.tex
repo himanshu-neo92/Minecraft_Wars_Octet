@@ -7,9 +7,9 @@
 class \hyperlink{classoctet_1_1_collision_objects}{octet\+::\+Collision\+Objects}
 \begin{DoxyCompactList}\small\item\em this class stores the basic common information about the game objects ie I\+D, Rigidbody, and the pointer to the specific object. all game object that are rigid bodies are objects of this class. \end{DoxyCompactList}\item 
 struct \hyperlink{structoctet_1_1_player}{octet\+::\+Player}
-\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_player}{Player} struct contains all the relivent info about the player This is the object class for the player. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_player}{Player} struct contains all the relevant info about the player This is the object class for the player. \end{DoxyCompactList}\item 
 struct \hyperlink{structoctet_1_1_a_i}{octet\+::\+A\+I}
-\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_a_i}{A\+I} struct contains all the relivent info about the \hyperlink{structoctet_1_1_a_i}{A\+I} This is the object class for the \hyperlink{structoctet_1_1_a_i}{A\+I}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_a_i}{A\+I} struct contains all the relevant info about the \hyperlink{structoctet_1_1_a_i}{A\+I} This is the object class for the \hyperlink{structoctet_1_1_a_i}{A\+I}. \end{DoxyCompactList}\item 
 struct \hyperlink{structoctet_1_1_elements}{octet\+::\+Elements}
 \begin{DoxyCompactList}\small\item\em The base struct for all the elements.\+Use this in the userpointer and call the derived class constructors to init this This is the object class for all the elements. \end{DoxyCompactList}\item 
 struct \hyperlink{structoctet_1_1_mud}{octet\+::\+Mud}
@@ -72,6 +72,11 @@ bool \hyperlink{namespaceoctet_a18649e9a2945ba720f8b1454433bffb9}{octet\+::\+A\+
 \begin{DoxyCompactList}\small\item\em This fucntion is called when the \hyperlink{structoctet_1_1_a_i}{A\+I} collides with an element or the player to check if the \hyperlink{structoctet_1_1_a_i}{A\+I} is facing then to attack. \end{DoxyCompactList}\item 
 bool \hyperlink{namespaceoctet_a612adfaf8e4ba9b7d22fec5b9a2672b7}{octet\+::minecraftcollision} (bt\+Manifold\+Point \&cp, const bt\+Collision\+Object\+Wrapper $\ast$obj1, int id1, int index1, const bt\+Collision\+Object\+Wrapper $\ast$obj2, int id2, int index2)
 \begin{DoxyCompactList}\small\item\em The collision custom callback fucntion.\+This is called when a collion takes place. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{namespaceoctet_a5a22a4300513019999dad2034dbd719b}{octet\+::isgameover}
+\begin{DoxyCompactList}\small\item\em true if the player dies. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Macro Definition Documentation}

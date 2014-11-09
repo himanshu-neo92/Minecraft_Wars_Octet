@@ -219,10 +219,12 @@ namespace octet {
     */
     int Element_Placed(int element_number)
     {
-      dynarray<int>::iterator tempind = elements_held_ids[element_number].end();;
+      dynarray<int>::iterator tempind = elements_held_ids[element_number].end();
+      tempind--;
+      int returnint = *tempind;
       --elements_held[element_number];
       elements_held_ids[element_number].pop_back();
-      return *tempind;
+      return returnint;
     }
     /** @fn  int Element_Placed(int element_number)
     *   @brief used to manage the elemets_held and the ID of those elements when the player places an element
@@ -256,7 +258,7 @@ namespace octet {
   };
   /**
   * @struct Player
-  * @brief The Player struct contains all the relivent info about the player
+  * @brief The Player struct contains all the relevant info about the player
   * This is the object class for the player
   */
 
@@ -360,7 +362,7 @@ namespace octet {
   };
   /**
   * @struct AI
-  * @brief The AI struct contains all the relivent info about the AI
+  * @brief The AI struct contains all the relevant info about the AI
   * This is the object class for the AI
   */
 
@@ -1327,6 +1329,7 @@ namespace octet {
             alSourcei(source, AL_BUFFER, Sound_place);
             alSourcePlay(source);
             int element_index = The_Player.Element_Placed(The_Player.current_element);
+            element = (Elements *)Game_objects[element_index]->getobjectclass();
             switch (The_Player.current_element)
             {
             case 0:
@@ -1343,14 +1346,14 @@ namespace octet {
               break;
 
             }
-            btVector3 pos = Game_objects[element->index]->getbody()->getCenterOfMassPosition();
-            Game_objects[element->index]->getbody()->translate(btVector3(app_scene->get_camera_instance(0)->get_node()->access_nodeToParent().w().x() + 1 * lookdir.x() - pos.x(), app_scene->get_camera_instance(0)->get_node()->access_nodeToParent().w().y() + lookdir.y() - pos.y(), app_scene->get_camera_instance(0)->get_node()->access_nodeToParent().w().z() + 1 * lookdir.z() - pos.z()));
+            btVector3 pos = Game_objects[element_index]->getbody()->getCenterOfMassPosition();
+            Game_objects[element_index]->getbody()->translate(btVector3(app_scene->get_camera_instance(0)->get_node()->access_nodeToParent().w().x() + 1 * lookdir.x() - pos.x(), app_scene->get_camera_instance(0)->get_node()->access_nodeToParent().w().y() + lookdir.y() - pos.y(), app_scene->get_camera_instance(0)->get_node()->access_nodeToParent().w().z() + 1 * lookdir.z() - pos.z()));
 
             btScalar mass = 100.0f;
             btVector3 inertiaTensor;
             elementshape->calculateLocalInertia(mass, inertiaTensor);
-            Game_objects[element->index]->getbody()->setMassProps(mass, inertiaTensor);
-            Game_objects[element->index]->getbody()->setCollisionFlags(btCollisionObject::CollisionFlags::CF_CUSTOM_MATERIAL_CALLBACK);
+            Game_objects[element_index]->getbody()->setMassProps(mass, inertiaTensor);
+            Game_objects[element_index]->getbody()->setCollisionFlags(btCollisionObject::CollisionFlags::CF_CUSTOM_MATERIAL_CALLBACK);
           }
           placing = false;
         }

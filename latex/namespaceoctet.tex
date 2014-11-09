@@ -10,7 +10,7 @@ Minecraft Wars 2014 \+: A simple project in which the player has to collect elem
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{structoctet_1_1_a_i}{A\+I}
-\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_a_i}{A\+I} struct contains all the relivent info about the \hyperlink{structoctet_1_1_a_i}{A\+I} This is the object class for the \hyperlink{structoctet_1_1_a_i}{A\+I}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_a_i}{A\+I} struct contains all the relevant info about the \hyperlink{structoctet_1_1_a_i}{A\+I} This is the object class for the \hyperlink{structoctet_1_1_a_i}{A\+I}. \end{DoxyCompactList}\item 
 class \hyperlink{classoctet_1_1_collision_objects}{Collision\+Objects}
 \begin{DoxyCompactList}\small\item\em this class stores the basic common information about the game objects ie I\+D, Rigidbody, and the pointer to the specific object. all game object that are rigid bodies are objects of this class. \end{DoxyCompactList}\item 
 struct \hyperlink{structoctet_1_1_elements}{Elements}
@@ -22,7 +22,7 @@ class \hyperlink{classoctet_1_1minecraft__wars}{minecraft\+\_\+wars}
 struct \hyperlink{structoctet_1_1_mud}{Mud}
 \begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_mud}{Mud} struct derived from the element struc. Only use to init the element This is use to init the element as a mud element. \end{DoxyCompactList}\item 
 struct \hyperlink{structoctet_1_1_player}{Player}
-\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_player}{Player} struct contains all the relivent info about the player This is the object class for the player. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_player}{Player} struct contains all the relevant info about the player This is the object class for the player. \end{DoxyCompactList}\item 
 struct \hyperlink{structoctet_1_1_stone}{Stone}
 \begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_stone}{Stone} struct derived from the element struc. Only use to init the element This is use to init the element as a stone element. \end{DoxyCompactList}\item 
 struct \hyperlink{structoctet_1_1_wood}{Wood}
@@ -65,6 +65,11 @@ bool \hyperlink{namespaceoctet_a18649e9a2945ba720f8b1454433bffb9}{A\+Iisfacingob
 \begin{DoxyCompactList}\small\item\em This fucntion is called when the \hyperlink{structoctet_1_1_a_i}{A\+I} collides with an element or the player to check if the \hyperlink{structoctet_1_1_a_i}{A\+I} is facing then to attack. \end{DoxyCompactList}\item 
 bool \hyperlink{namespaceoctet_a612adfaf8e4ba9b7d22fec5b9a2672b7}{minecraftcollision} (bt\+Manifold\+Point \&cp, const bt\+Collision\+Object\+Wrapper $\ast$obj1, int id1, int index1, const bt\+Collision\+Object\+Wrapper $\ast$obj2, int id2, int index2)
 \begin{DoxyCompactList}\small\item\em The collision custom callback fucntion.\+This is called when a collion takes place. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{namespaceoctet_a5a22a4300513019999dad2034dbd719b}{isgameover}
+\begin{DoxyCompactList}\small\item\em true if the player dies. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -230,3 +235,13 @@ The collision custom callback fucntion.\+This is called when a collion takes pla
 \begin{DoxyReturn}{Returns}
 a bool ture if the attribute of the collion have changed else false 
 \end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespaceoctet_a5a22a4300513019999dad2034dbd719b}{\index{octet@{octet}!isgameover@{isgameover}}
+\index{isgameover@{isgameover}!octet@{octet}}
+\subsubsection[{isgameover}]{\setlength{\rightskip}{0pt plus 5cm}bool octet\+::isgameover}}\label{namespaceoctet_a5a22a4300513019999dad2034dbd719b}
+
+
+true if the player dies. 
+
