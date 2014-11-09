@@ -1,0 +1,232 @@
+\hypertarget{namespaceoctet}{\section{octet Namespace Reference}
+\label{namespaceoctet}\index{octet@{octet}}
+}
+
+
+Minecraft Wars 2014 \+: A simple project in which the player has to collect elements, build a fort, and defend his fort as long as he can.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structoctet_1_1_a_i}{A\+I}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_a_i}{A\+I} struct contains all the relivent info about the \hyperlink{structoctet_1_1_a_i}{A\+I} This is the object class for the \hyperlink{structoctet_1_1_a_i}{A\+I}. \end{DoxyCompactList}\item 
+class \hyperlink{classoctet_1_1_collision_objects}{Collision\+Objects}
+\begin{DoxyCompactList}\small\item\em this class stores the basic common information about the game objects ie I\+D, Rigidbody, and the pointer to the specific object. all game object that are rigid bodies are objects of this class. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_elements}{Elements}
+\begin{DoxyCompactList}\small\item\em The base struct for all the elements.\+Use this in the userpointer and call the derived class constructors to init this This is the object class for all the elements. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_iron}{Iron}
+\item 
+class \hyperlink{classoctet_1_1minecraft__wars}{minecraft\+\_\+wars}
+\begin{DoxyCompactList}\small\item\em this is the main class of this project. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_mud}{Mud}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_mud}{Mud} struct derived from the element struc. Only use to init the element This is use to init the element as a mud element. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_player}{Player}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_player}{Player} struct contains all the relivent info about the player This is the object class for the player. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_stone}{Stone}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_stone}{Stone} struct derived from the element struc. Only use to init the element This is use to init the element as a stone element. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_wood}{Wood}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_wood}{Wood} struct derived from the element struc. Only use to init the element This is use to init the element as a wood element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7}{I\+D\+\_\+\+Object} \{ \\*
+\hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a491b9ccf81c178214d49a98b2d33b042}{Plane\+\_\+\+I\+D} = -\/1, 
+\hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a5c20c8692e98f9f94883e6bcc8fd12dc}{Player\+\_\+\+I\+D} = 0, 
+\hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7ab803c5aaf40caa6eaff50efa4aad3506}{Element\+\_\+\+I\+D} = 1, 
+\hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a3d19bfd0716876c3d201134677de2d94}{A\+I\+\_\+\+I\+D} = 2, 
+\\*
+\hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a58b4b5a7969f17157696f9691a807c16}{Pickup\+\_\+\+I\+D} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em This enum contains the I\+Ds for the game objects. Used to check what kind of an object the rigid body is from the user pointer. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceoctet_a25293ed69f50158637344e438fa1ae72}{I\+D\+\_\+\+Pickup} \{ \hyperlink{namespaceoctet_a25293ed69f50158637344e438fa1ae72a3d0d227c0fe13d73d160e1b8b1ddb531}{Health\+\_\+\+I\+D} = 0, 
+\hyperlink{namespaceoctet_a25293ed69f50158637344e438fa1ae72a0c567823ad645972eb32082eb093f016}{Ammo\+\_\+\+I\+D} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em This enum contains the I\+Ds for the items the player can pick. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceoctet_a8a658c1664b86192b093101b410d8e22}{I\+D\+\_\+\+Element} \{ \hyperlink{namespaceoctet_a8a658c1664b86192b093101b410d8e22a324ef69f1bb1cbe448bac355a6454f8d}{Mud\+\_\+\+I\+D} = 0, 
+\hyperlink{namespaceoctet_a8a658c1664b86192b093101b410d8e22a9df8ab8e26428d27934e8f4006ec4ff0}{Wood\+\_\+\+I\+D} = 1, 
+\hyperlink{namespaceoctet_a8a658c1664b86192b093101b410d8e22a7c55c376037f3e0568e5afdd52712e2f}{Stone\+\_\+\+I\+D} = 2, 
+\hyperlink{namespaceoctet_a8a658c1664b86192b093101b410d8e22a4199137749094f74e555cde8146bbedf}{Iron\+\_\+\+I\+D} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em This enum contains the I\+Ds for the elements the game will have. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceoctet_a9b5c767b2f5906d32938347f219f29d8}{I\+D\+\_\+weapon} \{ \hyperlink{namespaceoctet_a9b5c767b2f5906d32938347f219f29d8aba4bbd933933361c95782aeef88f84b6}{Gun\+\_\+\+I\+D} = 0
+ \}
+\begin{DoxyCompactList}\small\item\em This enum contains the I\+Ds for the weapons the game will have. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4}{Hits\+\_\+to\+\_\+extract\+\_\+\+Element} \{ \hyperlink{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a750c23f53924dfbcd9fb50ca61e8f480}{Mud\+\_\+\+Hits} = 2, 
+\hyperlink{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a7827d8f1739c787a24f280dd43555860}{Wood\+\_\+\+Hits} = 3, 
+\hyperlink{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4aed66fa47b7558f768b7e5e30cd526e89}{Stone\+\_\+\+Hits} = 5, 
+\hyperlink{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a05e2baa4de05be589af50ab12a54ab67}{Iron\+\_\+\+Hits} = 7
+ \}
+\begin{DoxyCompactList}\small\item\em This enum contains the number of gather hits required by the player to gather a perticular element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{namespaceoctet_a18649e9a2945ba720f8b1454433bffb9}{A\+Iisfacingobject} (bt\+Rigid\+Body $\ast$\hyperlink{structoctet_1_1_a_i}{A\+I}, bt\+Rigid\+Body $\ast$obj)
+\begin{DoxyCompactList}\small\item\em This fucntion is called when the \hyperlink{structoctet_1_1_a_i}{A\+I} collides with an element or the player to check if the \hyperlink{structoctet_1_1_a_i}{A\+I} is facing then to attack. \end{DoxyCompactList}\item 
+bool \hyperlink{namespaceoctet_a612adfaf8e4ba9b7d22fec5b9a2672b7}{minecraftcollision} (bt\+Manifold\+Point \&cp, const bt\+Collision\+Object\+Wrapper $\ast$obj1, int id1, int index1, const bt\+Collision\+Object\+Wrapper $\ast$obj2, int id2, int index2)
+\begin{DoxyCompactList}\small\item\em The collision custom callback fucntion.\+This is called when a collion takes place. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Minecraft Wars 2014 \+: A simple project in which the player has to collect elements, build a fort, and defend his fort as long as he can. 
+
+(C) Andy Thomason 2012-\/2014 Modular Framework for Open\+G\+L\+E\+S2 rendering on multiple platforms. \begin{DoxyAuthor}{Author}
+Himanshu Chablani 
+\end{DoxyAuthor}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4}{\index{octet@{octet}!Hits\+\_\+to\+\_\+extract\+\_\+\+Element@{Hits\+\_\+to\+\_\+extract\+\_\+\+Element}}
+\index{Hits\+\_\+to\+\_\+extract\+\_\+\+Element@{Hits\+\_\+to\+\_\+extract\+\_\+\+Element}!octet@{octet}}
+\subsubsection[{Hits\+\_\+to\+\_\+extract\+\_\+\+Element}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf octet\+::\+Hits\+\_\+to\+\_\+extract\+\_\+\+Element}}}\label{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4}
+
+
+This enum contains the number of gather hits required by the player to gather a perticular element. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Mud\+\_\+\+Hits@{Mud\+\_\+\+Hits}!octet@{octet}}\index{octet@{octet}!Mud\+\_\+\+Hits@{Mud\+\_\+\+Hits}}\item[{\em 
+\hypertarget{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a750c23f53924dfbcd9fb50ca61e8f480}{Mud\+\_\+\+Hits}\label{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a750c23f53924dfbcd9fb50ca61e8f480}
+}]\index{Wood\+\_\+\+Hits@{Wood\+\_\+\+Hits}!octet@{octet}}\index{octet@{octet}!Wood\+\_\+\+Hits@{Wood\+\_\+\+Hits}}\item[{\em 
+\hypertarget{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a7827d8f1739c787a24f280dd43555860}{Wood\+\_\+\+Hits}\label{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a7827d8f1739c787a24f280dd43555860}
+}]\index{Stone\+\_\+\+Hits@{Stone\+\_\+\+Hits}!octet@{octet}}\index{octet@{octet}!Stone\+\_\+\+Hits@{Stone\+\_\+\+Hits}}\item[{\em 
+\hypertarget{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4aed66fa47b7558f768b7e5e30cd526e89}{Stone\+\_\+\+Hits}\label{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4aed66fa47b7558f768b7e5e30cd526e89}
+}]\index{Iron\+\_\+\+Hits@{Iron\+\_\+\+Hits}!octet@{octet}}\index{octet@{octet}!Iron\+\_\+\+Hits@{Iron\+\_\+\+Hits}}\item[{\em 
+\hypertarget{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a05e2baa4de05be589af50ab12a54ab67}{Iron\+\_\+\+Hits}\label{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a05e2baa4de05be589af50ab12a54ab67}
+}]\end{description}
+\end{Desc}
+\hypertarget{namespaceoctet_a8a658c1664b86192b093101b410d8e22}{\index{octet@{octet}!I\+D\+\_\+\+Element@{I\+D\+\_\+\+Element}}
+\index{I\+D\+\_\+\+Element@{I\+D\+\_\+\+Element}!octet@{octet}}
+\subsubsection[{I\+D\+\_\+\+Element}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf octet\+::\+I\+D\+\_\+\+Element}}}\label{namespaceoctet_a8a658c1664b86192b093101b410d8e22}
+
+
+This enum contains the I\+Ds for the elements the game will have. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Mud\+\_\+\+I\+D@{Mud\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Mud\+\_\+\+I\+D@{Mud\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_a8a658c1664b86192b093101b410d8e22a324ef69f1bb1cbe448bac355a6454f8d}{Mud\+\_\+\+I\+D}\label{namespaceoctet_a8a658c1664b86192b093101b410d8e22a324ef69f1bb1cbe448bac355a6454f8d}
+}]\index{Wood\+\_\+\+I\+D@{Wood\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Wood\+\_\+\+I\+D@{Wood\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_a8a658c1664b86192b093101b410d8e22a9df8ab8e26428d27934e8f4006ec4ff0}{Wood\+\_\+\+I\+D}\label{namespaceoctet_a8a658c1664b86192b093101b410d8e22a9df8ab8e26428d27934e8f4006ec4ff0}
+}]\index{Stone\+\_\+\+I\+D@{Stone\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Stone\+\_\+\+I\+D@{Stone\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_a8a658c1664b86192b093101b410d8e22a7c55c376037f3e0568e5afdd52712e2f}{Stone\+\_\+\+I\+D}\label{namespaceoctet_a8a658c1664b86192b093101b410d8e22a7c55c376037f3e0568e5afdd52712e2f}
+}]\index{Iron\+\_\+\+I\+D@{Iron\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Iron\+\_\+\+I\+D@{Iron\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_a8a658c1664b86192b093101b410d8e22a4199137749094f74e555cde8146bbedf}{Iron\+\_\+\+I\+D}\label{namespaceoctet_a8a658c1664b86192b093101b410d8e22a4199137749094f74e555cde8146bbedf}
+}]\end{description}
+\end{Desc}
+\hypertarget{namespaceoctet_ae14a40f56acaed04355429b24bf458e7}{\index{octet@{octet}!I\+D\+\_\+\+Object@{I\+D\+\_\+\+Object}}
+\index{I\+D\+\_\+\+Object@{I\+D\+\_\+\+Object}!octet@{octet}}
+\subsubsection[{I\+D\+\_\+\+Object}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf octet\+::\+I\+D\+\_\+\+Object}}}\label{namespaceoctet_ae14a40f56acaed04355429b24bf458e7}
+
+
+This enum contains the I\+Ds for the game objects. Used to check what kind of an object the rigid body is from the user pointer. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Plane\+\_\+\+I\+D@{Plane\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Plane\+\_\+\+I\+D@{Plane\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a491b9ccf81c178214d49a98b2d33b042}{Plane\+\_\+\+I\+D}\label{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a491b9ccf81c178214d49a98b2d33b042}
+}]\index{Player\+\_\+\+I\+D@{Player\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Player\+\_\+\+I\+D@{Player\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a5c20c8692e98f9f94883e6bcc8fd12dc}{Player\+\_\+\+I\+D}\label{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a5c20c8692e98f9f94883e6bcc8fd12dc}
+}]\index{Element\+\_\+\+I\+D@{Element\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Element\+\_\+\+I\+D@{Element\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_ae14a40f56acaed04355429b24bf458e7ab803c5aaf40caa6eaff50efa4aad3506}{Element\+\_\+\+I\+D}\label{namespaceoctet_ae14a40f56acaed04355429b24bf458e7ab803c5aaf40caa6eaff50efa4aad3506}
+}]\index{A\+I\+\_\+\+I\+D@{A\+I\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!A\+I\+\_\+\+I\+D@{A\+I\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a3d19bfd0716876c3d201134677de2d94}{A\+I\+\_\+\+I\+D}\label{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a3d19bfd0716876c3d201134677de2d94}
+}]\index{Pickup\+\_\+\+I\+D@{Pickup\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Pickup\+\_\+\+I\+D@{Pickup\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a58b4b5a7969f17157696f9691a807c16}{Pickup\+\_\+\+I\+D}\label{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a58b4b5a7969f17157696f9691a807c16}
+}]\end{description}
+\end{Desc}
+\hypertarget{namespaceoctet_a25293ed69f50158637344e438fa1ae72}{\index{octet@{octet}!I\+D\+\_\+\+Pickup@{I\+D\+\_\+\+Pickup}}
+\index{I\+D\+\_\+\+Pickup@{I\+D\+\_\+\+Pickup}!octet@{octet}}
+\subsubsection[{I\+D\+\_\+\+Pickup}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf octet\+::\+I\+D\+\_\+\+Pickup}}}\label{namespaceoctet_a25293ed69f50158637344e438fa1ae72}
+
+
+This enum contains the I\+Ds for the items the player can pick. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Health\+\_\+\+I\+D@{Health\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Health\+\_\+\+I\+D@{Health\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_a25293ed69f50158637344e438fa1ae72a3d0d227c0fe13d73d160e1b8b1ddb531}{Health\+\_\+\+I\+D}\label{namespaceoctet_a25293ed69f50158637344e438fa1ae72a3d0d227c0fe13d73d160e1b8b1ddb531}
+}]\index{Ammo\+\_\+\+I\+D@{Ammo\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Ammo\+\_\+\+I\+D@{Ammo\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_a25293ed69f50158637344e438fa1ae72a0c567823ad645972eb32082eb093f016}{Ammo\+\_\+\+I\+D}\label{namespaceoctet_a25293ed69f50158637344e438fa1ae72a0c567823ad645972eb32082eb093f016}
+}]\end{description}
+\end{Desc}
+\hypertarget{namespaceoctet_a9b5c767b2f5906d32938347f219f29d8}{\index{octet@{octet}!I\+D\+\_\+weapon@{I\+D\+\_\+weapon}}
+\index{I\+D\+\_\+weapon@{I\+D\+\_\+weapon}!octet@{octet}}
+\subsubsection[{I\+D\+\_\+weapon}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf octet\+::\+I\+D\+\_\+weapon}}}\label{namespaceoctet_a9b5c767b2f5906d32938347f219f29d8}
+
+
+This enum contains the I\+Ds for the weapons the game will have. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Gun\+\_\+\+I\+D@{Gun\+\_\+\+I\+D}!octet@{octet}}\index{octet@{octet}!Gun\+\_\+\+I\+D@{Gun\+\_\+\+I\+D}}\item[{\em 
+\hypertarget{namespaceoctet_a9b5c767b2f5906d32938347f219f29d8aba4bbd933933361c95782aeef88f84b6}{Gun\+\_\+\+I\+D}\label{namespaceoctet_a9b5c767b2f5906d32938347f219f29d8aba4bbd933933361c95782aeef88f84b6}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceoctet_a18649e9a2945ba720f8b1454433bffb9}{\index{octet@{octet}!A\+Iisfacingobject@{A\+Iisfacingobject}}
+\index{A\+Iisfacingobject@{A\+Iisfacingobject}!octet@{octet}}
+\subsubsection[{A\+Iisfacingobject}]{\setlength{\rightskip}{0pt plus 5cm}bool octet\+::\+A\+Iisfacingobject (
+\begin{DoxyParamCaption}
+\item[{bt\+Rigid\+Body $\ast$}]{A\+I, }
+\item[{bt\+Rigid\+Body $\ast$}]{obj}
+\end{DoxyParamCaption}
+)}}\label{namespaceoctet_a18649e9a2945ba720f8b1454433bffb9}
+
+
+This fucntion is called when the \hyperlink{structoctet_1_1_a_i}{A\+I} collides with an element or the player to check if the \hyperlink{structoctet_1_1_a_i}{A\+I} is facing then to attack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bt\+Rigid\+Body} & $\ast$\+A\+I The rigid body of the \hyperlink{structoctet_1_1_a_i}{A\+I} \\
+\hline
+{\em bt\+Rigid\+Body} & $\ast$obj The rigid body of the object the \hyperlink{structoctet_1_1_a_i}{A\+I} collided with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a bool true if the \hyperlink{structoctet_1_1_a_i}{A\+I} was facing the object else false 
+\end{DoxyReturn}
+\hypertarget{namespaceoctet_a612adfaf8e4ba9b7d22fec5b9a2672b7}{\index{octet@{octet}!minecraftcollision@{minecraftcollision}}
+\index{minecraftcollision@{minecraftcollision}!octet@{octet}}
+\subsubsection[{minecraftcollision}]{\setlength{\rightskip}{0pt plus 5cm}bool octet\+::minecraftcollision (
+\begin{DoxyParamCaption}
+\item[{bt\+Manifold\+Point \&}]{cp, }
+\item[{const bt\+Collision\+Object\+Wrapper $\ast$}]{obj1, }
+\item[{int}]{id1, }
+\item[{int}]{index1, }
+\item[{const bt\+Collision\+Object\+Wrapper $\ast$}]{obj2, }
+\item[{int}]{id2, }
+\item[{int}]{index2}
+\end{DoxyParamCaption}
+)}}\label{namespaceoctet_a612adfaf8e4ba9b7d22fec5b9a2672b7}
+
+
+The collision custom callback fucntion.\+This is called when a collion takes place. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bt\+Manifold\+Point} & \&cp The point of collision \\
+\hline
+{\em const} & bt\+Collision\+Object\+Wrapper $\ast$obj1 The rigid body wrapper of the first object \\
+\hline
+{\em int} & id1 the id of the first object( The Bt physics id not the game id) \\
+\hline
+{\em int} & id1 the index of the first object(\+The Bt physics index not the game index) \\
+\hline
+{\em const} & bt\+Collision\+Object\+Wrapper $\ast$obj2 The rigid body wrapper of the second object \\
+\hline
+{\em int} & id1 the id of the second object( The Bt physics id not the game id) \\
+\hline
+{\em int} & id1 the index of the second object(\+The Bt physics index not the game index) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a bool ture if the attribute of the collion have changed else false 
+\end{DoxyReturn}

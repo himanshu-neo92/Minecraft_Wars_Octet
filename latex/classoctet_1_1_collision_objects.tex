@@ -1,0 +1,134 @@
+\hypertarget{classoctet_1_1_collision_objects}{\section{octet\+:\+:Collision\+Objects Class Reference}
+\label{classoctet_1_1_collision_objects}\index{octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}}
+}
+
+
+this class stores the basic common information about the game objects ie I\+D, Rigidbody, and the pointer to the specific object. all game object that are rigid bodies are objects of this class.  
+
+
+
+
+{\ttfamily \#include $<$minecraft\+\_\+wars.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoctet_1_1_collision_objects_a2d8ca87d8b6efea2bde6c1a83882c9f9}{Collision\+Objects} (int \+\_\+id, bt\+Rigid\+Body $\ast$\+\_\+body, void $\ast$\+\_\+objectclass)
+\begin{DoxyCompactList}\small\item\em The constructor for the class. \end{DoxyCompactList}\item 
+int \hyperlink{classoctet_1_1_collision_objects_a0ed6b430acb9293c5891dd8cdd692cf7}{getid} ()
+\begin{DoxyCompactList}\small\item\em getter for the I\+D \end{DoxyCompactList}\item 
+bt\+Rigid\+Body $\ast$ \hyperlink{classoctet_1_1_collision_objects_a6307bb12ac79846cc6e082631b16fde1}{getbody} ()
+\begin{DoxyCompactList}\small\item\em getter for the Rigid body \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{classoctet_1_1_collision_objects_a25a95174b8567e118d5542df78a23acb}{getobjectclass} ()
+\begin{DoxyCompactList}\small\item\em getter for the Object class \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classoctet_1_1_collision_objects_a18150a2a87fdd96a281c6144df00c8ce}{id}
+\begin{DoxyCompactList}\small\item\em The I\+D of the Object ie player, element , \hyperlink{structoctet_1_1_a_i}{A\+I} , plane , or pickup. \end{DoxyCompactList}\item 
+bt\+Rigid\+Body $\ast$ \hyperlink{classoctet_1_1_collision_objects_a2ff1e65985cd66b761bc893faecf7ae0}{body}
+\begin{DoxyCompactList}\small\item\em The Rigid body of the Object. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{classoctet_1_1_collision_objects_ae36b5dcd8ca63d46a02a87b7464d11ba}{objectclass}
+\begin{DoxyCompactList}\small\item\em The Object class of the Object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+this class stores the basic common information about the game objects ie I\+D, Rigidbody, and the pointer to the specific object. all game object that are rigid bodies are objects of this class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoctet_1_1_collision_objects_a2d8ca87d8b6efea2bde6c1a83882c9f9}{\index{octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}!Collision\+Objects@{Collision\+Objects}}
+\index{Collision\+Objects@{Collision\+Objects}!octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}}
+\subsubsection[{Collision\+Objects}]{\setlength{\rightskip}{0pt plus 5cm}octet\+::\+Collision\+Objects\+::\+Collision\+Objects (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+id, }
+\item[{bt\+Rigid\+Body $\ast$}]{\+\_\+body, }
+\item[{void $\ast$}]{\+\_\+objectclass}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classoctet_1_1_collision_objects_a2d8ca87d8b6efea2bde6c1a83882c9f9}
+
+
+The constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & \+\_\+id an int this is the id of the object to define if the object is mud,wood,stone,or iron ie I\+D\+\_\+\+Object \\
+\hline
+{\em bt\+Rigid\+Body} & $\ast$\+\_\+body is a pointer to the rigid body of the object. \\
+\hline
+{\em void} & $\ast$\+\_\+objectclass is a void pointer to the object class which is specific to the object ie player,element,\hyperlink{structoctet_1_1_a_i}{A\+I}... \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoctet_1_1_collision_objects_a6307bb12ac79846cc6e082631b16fde1}{\index{octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}!getbody@{getbody}}
+\index{getbody@{getbody}!octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}}
+\subsubsection[{getbody}]{\setlength{\rightskip}{0pt plus 5cm}bt\+Rigid\+Body $\ast$ octet\+::\+Collision\+Objects\+::getbody (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classoctet_1_1_collision_objects_a6307bb12ac79846cc6e082631b16fde1}
+
+
+getter for the Rigid body 
+
+\begin{DoxyReturn}{Returns}
+a bt\+Rigid\+Body$\ast$ this is the Rigid body of the game object 
+\end{DoxyReturn}
+\hypertarget{classoctet_1_1_collision_objects_a0ed6b430acb9293c5891dd8cdd692cf7}{\index{octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}!getid@{getid}}
+\index{getid@{getid}!octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}}
+\subsubsection[{getid}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+Collision\+Objects\+::getid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classoctet_1_1_collision_objects_a0ed6b430acb9293c5891dd8cdd692cf7}
+
+
+getter for the I\+D 
+
+\begin{DoxyReturn}{Returns}
+an int this is the I\+D of the game object 
+\end{DoxyReturn}
+\hypertarget{classoctet_1_1_collision_objects_a25a95174b8567e118d5542df78a23acb}{\index{octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}!getobjectclass@{getobjectclass}}
+\index{getobjectclass@{getobjectclass}!octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}}
+\subsubsection[{getobjectclass}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ octet\+::\+Collision\+Objects\+::getobjectclass (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classoctet_1_1_collision_objects_a25a95174b8567e118d5542df78a23acb}
+
+
+getter for the Object class 
+
+\begin{DoxyReturn}{Returns}
+a void$\ast$ this is the object class of the game object 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classoctet_1_1_collision_objects_a2ff1e65985cd66b761bc893faecf7ae0}{\index{octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}!body@{body}}
+\index{body@{body}!octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}}
+\subsubsection[{body}]{\setlength{\rightskip}{0pt plus 5cm}bt\+Rigid\+Body $\ast$ octet\+::\+Collision\+Objects\+::body\hspace{0.3cm}{\ttfamily [private]}}}\label{classoctet_1_1_collision_objects_a2ff1e65985cd66b761bc893faecf7ae0}
+
+
+The Rigid body of the Object. 
+
+\hypertarget{classoctet_1_1_collision_objects_a18150a2a87fdd96a281c6144df00c8ce}{\index{octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}!id@{id}}
+\index{id@{id}!octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+Collision\+Objects\+::id\hspace{0.3cm}{\ttfamily [private]}}}\label{classoctet_1_1_collision_objects_a18150a2a87fdd96a281c6144df00c8ce}
+
+
+The I\+D of the Object ie player, element , \hyperlink{structoctet_1_1_a_i}{A\+I} , plane , or pickup. 
+
+\hypertarget{classoctet_1_1_collision_objects_ae36b5dcd8ca63d46a02a87b7464d11ba}{\index{octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}!objectclass@{objectclass}}
+\index{objectclass@{objectclass}!octet\+::\+Collision\+Objects@{octet\+::\+Collision\+Objects}}
+\subsubsection[{objectclass}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ octet\+::\+Collision\+Objects\+::objectclass\hspace{0.3cm}{\ttfamily [private]}}}\label{classoctet_1_1_collision_objects_ae36b5dcd8ca63d46a02a87b7464d11ba}
+
+
+The Object class of the Object. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{minecraft__wars_8h}{minecraft\+\_\+wars.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,91 @@
+\hypertarget{minecraft__wars_8h}{\section{minecraft\+\_\+wars.\+h File Reference}
+\label{minecraft__wars_8h}\index{minecraft\+\_\+wars.\+h@{minecraft\+\_\+wars.\+h}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classoctet_1_1_collision_objects}{octet\+::\+Collision\+Objects}
+\begin{DoxyCompactList}\small\item\em this class stores the basic common information about the game objects ie I\+D, Rigidbody, and the pointer to the specific object. all game object that are rigid bodies are objects of this class. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_player}{octet\+::\+Player}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_player}{Player} struct contains all the relivent info about the player This is the object class for the player. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_a_i}{octet\+::\+A\+I}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_a_i}{A\+I} struct contains all the relivent info about the \hyperlink{structoctet_1_1_a_i}{A\+I} This is the object class for the \hyperlink{structoctet_1_1_a_i}{A\+I}. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_elements}{octet\+::\+Elements}
+\begin{DoxyCompactList}\small\item\em The base struct for all the elements.\+Use this in the userpointer and call the derived class constructors to init this This is the object class for all the elements. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_mud}{octet\+::\+Mud}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_mud}{Mud} struct derived from the element struc. Only use to init the element This is use to init the element as a mud element. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_wood}{octet\+::\+Wood}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_wood}{Wood} struct derived from the element struc. Only use to init the element This is use to init the element as a wood element. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_stone}{octet\+::\+Stone}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{structoctet_1_1_stone}{Stone} struct derived from the element struc. Only use to init the element This is use to init the element as a stone element. \end{DoxyCompactList}\item 
+struct \hyperlink{structoctet_1_1_iron}{octet\+::\+Iron}
+\item 
+class \hyperlink{classoctet_1_1minecraft__wars}{octet\+::minecraft\+\_\+wars}
+\begin{DoxyCompactList}\small\item\em this is the main class of this project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceoctet}{octet}
+\begin{DoxyCompactList}\small\item\em Minecraft Wars 2014 \+: A simple project in which the player has to collect elements, build a fort, and defend his fort as long as he can. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{minecraft__wars_8h_a6e7de24a0c77478471e22ff642696cba}{Nu\+\_\+\+Elements}~4
+\begin{DoxyCompactList}\small\item\em The Number of elements in the game ie \+: Mud, Wood, Stone, Iron. \end{DoxyCompactList}\item 
+\#define \hyperlink{minecraft__wars_8h_acb18bb521c73ece6bfc2790c9bb0a83a}{Nu\+\_\+\+Weapon}~1
+\begin{DoxyCompactList}\small\item\em The Number of weapons in the game ie \+: gun. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7}{octet\+::\+I\+D\+\_\+\+Object} \{ \\*
+\hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a491b9ccf81c178214d49a98b2d33b042}{octet\+::\+Plane\+\_\+\+I\+D} = -\/1, 
+\hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a5c20c8692e98f9f94883e6bcc8fd12dc}{octet\+::\+Player\+\_\+\+I\+D} = 0, 
+\hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7ab803c5aaf40caa6eaff50efa4aad3506}{octet\+::\+Element\+\_\+\+I\+D} = 1, 
+\hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a3d19bfd0716876c3d201134677de2d94}{octet\+::\+A\+I\+\_\+\+I\+D} = 2, 
+\\*
+\hyperlink{namespaceoctet_ae14a40f56acaed04355429b24bf458e7a58b4b5a7969f17157696f9691a807c16}{octet\+::\+Pickup\+\_\+\+I\+D} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em This enum contains the I\+Ds for the game objects. Used to check what kind of an object the rigid body is from the user pointer. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceoctet_a25293ed69f50158637344e438fa1ae72}{octet\+::\+I\+D\+\_\+\+Pickup} \{ \hyperlink{namespaceoctet_a25293ed69f50158637344e438fa1ae72a3d0d227c0fe13d73d160e1b8b1ddb531}{octet\+::\+Health\+\_\+\+I\+D} = 0, 
+\hyperlink{namespaceoctet_a25293ed69f50158637344e438fa1ae72a0c567823ad645972eb32082eb093f016}{octet\+::\+Ammo\+\_\+\+I\+D} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em This enum contains the I\+Ds for the items the player can pick. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceoctet_a8a658c1664b86192b093101b410d8e22}{octet\+::\+I\+D\+\_\+\+Element} \{ \hyperlink{namespaceoctet_a8a658c1664b86192b093101b410d8e22a324ef69f1bb1cbe448bac355a6454f8d}{octet\+::\+Mud\+\_\+\+I\+D} = 0, 
+\hyperlink{namespaceoctet_a8a658c1664b86192b093101b410d8e22a9df8ab8e26428d27934e8f4006ec4ff0}{octet\+::\+Wood\+\_\+\+I\+D} = 1, 
+\hyperlink{namespaceoctet_a8a658c1664b86192b093101b410d8e22a7c55c376037f3e0568e5afdd52712e2f}{octet\+::\+Stone\+\_\+\+I\+D} = 2, 
+\hyperlink{namespaceoctet_a8a658c1664b86192b093101b410d8e22a4199137749094f74e555cde8146bbedf}{octet\+::\+Iron\+\_\+\+I\+D} = 3
+ \}
+\begin{DoxyCompactList}\small\item\em This enum contains the I\+Ds for the elements the game will have. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceoctet_a9b5c767b2f5906d32938347f219f29d8}{octet\+::\+I\+D\+\_\+weapon} \{ \hyperlink{namespaceoctet_a9b5c767b2f5906d32938347f219f29d8aba4bbd933933361c95782aeef88f84b6}{octet\+::\+Gun\+\_\+\+I\+D} = 0
+ \}
+\begin{DoxyCompactList}\small\item\em This enum contains the I\+Ds for the weapons the game will have. \end{DoxyCompactList}\item 
+enum \hyperlink{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4}{octet\+::\+Hits\+\_\+to\+\_\+extract\+\_\+\+Element} \{ \hyperlink{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a750c23f53924dfbcd9fb50ca61e8f480}{octet\+::\+Mud\+\_\+\+Hits} = 2, 
+\hyperlink{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a7827d8f1739c787a24f280dd43555860}{octet\+::\+Wood\+\_\+\+Hits} = 3, 
+\hyperlink{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4aed66fa47b7558f768b7e5e30cd526e89}{octet\+::\+Stone\+\_\+\+Hits} = 5, 
+\hyperlink{namespaceoctet_ae8a703c3351a9f48aa7ad96fc57c55b4a05e2baa4de05be589af50ab12a54ab67}{octet\+::\+Iron\+\_\+\+Hits} = 7
+ \}
+\begin{DoxyCompactList}\small\item\em This enum contains the number of gather hits required by the player to gather a perticular element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{namespaceoctet_a18649e9a2945ba720f8b1454433bffb9}{octet\+::\+A\+Iisfacingobject} (bt\+Rigid\+Body $\ast$A\+I, bt\+Rigid\+Body $\ast$obj)
+\begin{DoxyCompactList}\small\item\em This fucntion is called when the \hyperlink{structoctet_1_1_a_i}{A\+I} collides with an element or the player to check if the \hyperlink{structoctet_1_1_a_i}{A\+I} is facing then to attack. \end{DoxyCompactList}\item 
+bool \hyperlink{namespaceoctet_a612adfaf8e4ba9b7d22fec5b9a2672b7}{octet\+::minecraftcollision} (bt\+Manifold\+Point \&cp, const bt\+Collision\+Object\+Wrapper $\ast$obj1, int id1, int index1, const bt\+Collision\+Object\+Wrapper $\ast$obj2, int id2, int index2)
+\begin{DoxyCompactList}\small\item\em The collision custom callback fucntion.\+This is called when a collion takes place. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{minecraft__wars_8h_a6e7de24a0c77478471e22ff642696cba}{\index{minecraft\+\_\+wars.\+h@{minecraft\+\_\+wars.\+h}!Nu\+\_\+\+Elements@{Nu\+\_\+\+Elements}}
+\index{Nu\+\_\+\+Elements@{Nu\+\_\+\+Elements}!minecraft\+\_\+wars.\+h@{minecraft\+\_\+wars.\+h}}
+\subsubsection[{Nu\+\_\+\+Elements}]{\setlength{\rightskip}{0pt plus 5cm}\#define Nu\+\_\+\+Elements~4}}\label{minecraft__wars_8h_a6e7de24a0c77478471e22ff642696cba}
+
+
+The Number of elements in the game ie \+: Mud, Wood, Stone, Iron. 
+
+\hypertarget{minecraft__wars_8h_acb18bb521c73ece6bfc2790c9bb0a83a}{\index{minecraft\+\_\+wars.\+h@{minecraft\+\_\+wars.\+h}!Nu\+\_\+\+Weapon@{Nu\+\_\+\+Weapon}}
+\index{Nu\+\_\+\+Weapon@{Nu\+\_\+\+Weapon}!minecraft\+\_\+wars.\+h@{minecraft\+\_\+wars.\+h}}
+\subsubsection[{Nu\+\_\+\+Weapon}]{\setlength{\rightskip}{0pt plus 5cm}\#define Nu\+\_\+\+Weapon~1}}\label{minecraft__wars_8h_acb18bb521c73ece6bfc2790c9bb0a83a}
+
+
+The Number of weapons in the game ie \+: gun. 
+

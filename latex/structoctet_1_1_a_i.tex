@@ -1,0 +1,164 @@
+\hypertarget{structoctet_1_1_a_i}{\section{octet\+:\+:A\+I Struct Reference}
+\label{structoctet_1_1_a_i}\index{octet\+::\+A\+I@{octet\+::\+A\+I}}
+}
+
+
+The \hyperlink{structoctet_1_1_a_i}{A\+I} struct contains all the relivent info about the \hyperlink{structoctet_1_1_a_i}{A\+I} This is the object class for the \hyperlink{structoctet_1_1_a_i}{A\+I}.  
+
+
+
+
+{\ttfamily \#include $<$minecraft\+\_\+wars.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structoctet_1_1_a_i_af1ba740c2468f2561f339276775b1083}{A\+I} (int \+\_\+index)
+\begin{DoxyCompactList}\small\item\em The constructor for the player struct. \end{DoxyCompactList}\item 
+bool \hyperlink{structoctet_1_1_a_i_a07f1fe660302de694477627f95c58f56}{Got\+\_\+\+Hit} (float \hyperlink{structoctet_1_1_a_i_a1d0e4f22af8d053827acec1f42cf0f41}{damage})
+\begin{DoxyCompactList}\small\item\em The ammont of damage the \hyperlink{structoctet_1_1_a_i}{A\+I} has taken from the \hyperlink{structoctet_1_1_player}{Player} returns false if \hyperlink{structoctet_1_1_a_i}{A\+I} dies. \end{DoxyCompactList}\item 
+bool \hyperlink{structoctet_1_1_a_i_a0e1e1d57a6ea0cc3189bed8cc87ef16a}{updatecanattack} ()
+\begin{DoxyCompactList}\small\item\em If the \hyperlink{structoctet_1_1_a_i}{A\+I} can't attack returns false and till the tempframes $>$ framestoattack and then the \hyperlink{structoctet_1_1_a_i}{A\+I} can attack again. \end{DoxyCompactList}\item 
+float \hyperlink{structoctet_1_1_a_i_a009c0ba8d9eb8ad009772e5fc755aff7}{attacked} ()
+\begin{DoxyCompactList}\small\item\em If the \hyperlink{structoctet_1_1_a_i}{A\+I} can't attack returns 0 and if \hyperlink{structoctet_1_1_a_i}{A\+I} can returns the damgae. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{structoctet_1_1_a_i_a830fe8ab096f675af501eb5a86bf7b00}{health}
+\begin{DoxyCompactList}\small\item\em The current health of the \hyperlink{structoctet_1_1_a_i}{A\+I}. \end{DoxyCompactList}\item 
+int \hyperlink{structoctet_1_1_a_i_a661a3cbb84347cd57da5a2f45ec2fbdc}{index}
+\begin{DoxyCompactList}\small\item\em The index of the \hyperlink{structoctet_1_1_a_i}{A\+I} in game object dynarray. \end{DoxyCompactList}\item 
+float \hyperlink{structoctet_1_1_a_i_a1d0e4f22af8d053827acec1f42cf0f41}{damage}
+\begin{DoxyCompactList}\small\item\em The damage for the \hyperlink{structoctet_1_1_a_i}{A\+I}. \end{DoxyCompactList}\item 
+bool \hyperlink{structoctet_1_1_a_i_a0176ad3aed0864d973ad6ad9cbda02d0}{canattack}
+\begin{DoxyCompactList}\small\item\em if true the \hyperlink{structoctet_1_1_a_i}{A\+I} can attack if false \hyperlink{structoctet_1_1_a_i}{A\+I} has to wait for some time till he can attack again \end{DoxyCompactList}\item 
+float \hyperlink{structoctet_1_1_a_i_a9c7ae85a59d85e836a4a2137b0f9455f}{framestoattack}
+\begin{DoxyCompactList}\small\item\em The ammount of frames the \hyperlink{structoctet_1_1_a_i}{A\+I} has to wait for the next time he can attack. \end{DoxyCompactList}\item 
+float \hyperlink{structoctet_1_1_a_i_a9628b67694f7928830f82bac2360b2b7}{tempframes}
+\begin{DoxyCompactList}\small\item\em The frames lasped since the \hyperlink{structoctet_1_1_a_i}{A\+I}'s last attack. \end{DoxyCompactList}\item 
+bool \hyperlink{structoctet_1_1_a_i_a2938e1f9b22f03013d677b42149d5d96}{isdead}
+\begin{DoxyCompactList}\small\item\em the status of the \hyperlink{structoctet_1_1_a_i}{A\+I} dead or alive \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{structoctet_1_1_a_i}{A\+I} struct contains all the relivent info about the \hyperlink{structoctet_1_1_a_i}{A\+I} This is the object class for the \hyperlink{structoctet_1_1_a_i}{A\+I}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structoctet_1_1_a_i_af1ba740c2468f2561f339276775b1083}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!A\+I@{A\+I}}
+\index{A\+I@{A\+I}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{A\+I}]{\setlength{\rightskip}{0pt plus 5cm}octet\+::\+A\+I\+::\+A\+I (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_a_i_af1ba740c2468f2561f339276775b1083}
+
+
+The constructor for the player struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & \+\_\+index The index of the \hyperlink{structoctet_1_1_a_i}{A\+I} in the game object dynarray \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structoctet_1_1_a_i_a009c0ba8d9eb8ad009772e5fc755aff7}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!attacked@{attacked}}
+\index{attacked@{attacked}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{attacked}]{\setlength{\rightskip}{0pt plus 5cm}float octet\+::\+A\+I\+::attacked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_a_i_a009c0ba8d9eb8ad009772e5fc755aff7}
+
+
+If the \hyperlink{structoctet_1_1_a_i}{A\+I} can't attack returns 0 and if \hyperlink{structoctet_1_1_a_i}{A\+I} can returns the damgae. 
+
+\begin{DoxyReturn}{Returns}
+a float the damage of \hyperlink{structoctet_1_1_a_i}{A\+I} attack 
+\end{DoxyReturn}
+\hypertarget{structoctet_1_1_a_i_a07f1fe660302de694477627f95c58f56}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!Got\+\_\+\+Hit@{Got\+\_\+\+Hit}}
+\index{Got\+\_\+\+Hit@{Got\+\_\+\+Hit}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{Got\+\_\+\+Hit}]{\setlength{\rightskip}{0pt plus 5cm}bool octet\+::\+A\+I\+::\+Got\+\_\+\+Hit (
+\begin{DoxyParamCaption}
+\item[{float}]{damage}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_a_i_a07f1fe660302de694477627f95c58f56}
+
+
+The ammont of damage the \hyperlink{structoctet_1_1_a_i}{A\+I} has taken from the \hyperlink{structoctet_1_1_player}{Player} returns false if \hyperlink{structoctet_1_1_a_i}{A\+I} dies. 
+
+\begin{DoxyReturn}{Returns}
+a bool true if \hyperlink{structoctet_1_1_a_i}{A\+I} is alive false if dead 
+\end{DoxyReturn}
+\hypertarget{structoctet_1_1_a_i_a0e1e1d57a6ea0cc3189bed8cc87ef16a}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!updatecanattack@{updatecanattack}}
+\index{updatecanattack@{updatecanattack}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{updatecanattack}]{\setlength{\rightskip}{0pt plus 5cm}bool octet\+::\+A\+I\+::updatecanattack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_a_i_a0e1e1d57a6ea0cc3189bed8cc87ef16a}
+
+
+If the \hyperlink{structoctet_1_1_a_i}{A\+I} can't attack returns false and till the tempframes $>$ framestoattack and then the \hyperlink{structoctet_1_1_a_i}{A\+I} can attack again. 
+
+\begin{DoxyReturn}{Returns}
+a bool true if \hyperlink{structoctet_1_1_a_i}{A\+I} is can attack false if not 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structoctet_1_1_a_i_a0176ad3aed0864d973ad6ad9cbda02d0}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!canattack@{canattack}}
+\index{canattack@{canattack}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{canattack}]{\setlength{\rightskip}{0pt plus 5cm}bool octet\+::\+A\+I\+::canattack}}\label{structoctet_1_1_a_i_a0176ad3aed0864d973ad6ad9cbda02d0}
+
+
+if true the \hyperlink{structoctet_1_1_a_i}{A\+I} can attack if false \hyperlink{structoctet_1_1_a_i}{A\+I} has to wait for some time till he can attack again 
+
+\hypertarget{structoctet_1_1_a_i_a1d0e4f22af8d053827acec1f42cf0f41}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!damage@{damage}}
+\index{damage@{damage}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{damage}]{\setlength{\rightskip}{0pt plus 5cm}float octet\+::\+A\+I\+::damage}}\label{structoctet_1_1_a_i_a1d0e4f22af8d053827acec1f42cf0f41}
+
+
+The damage for the \hyperlink{structoctet_1_1_a_i}{A\+I}. 
+
+\hypertarget{structoctet_1_1_a_i_a9c7ae85a59d85e836a4a2137b0f9455f}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!framestoattack@{framestoattack}}
+\index{framestoattack@{framestoattack}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{framestoattack}]{\setlength{\rightskip}{0pt plus 5cm}float octet\+::\+A\+I\+::framestoattack}}\label{structoctet_1_1_a_i_a9c7ae85a59d85e836a4a2137b0f9455f}
+
+
+The ammount of frames the \hyperlink{structoctet_1_1_a_i}{A\+I} has to wait for the next time he can attack. 
+
+\hypertarget{structoctet_1_1_a_i_a830fe8ab096f675af501eb5a86bf7b00}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!health@{health}}
+\index{health@{health}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{health}]{\setlength{\rightskip}{0pt plus 5cm}float octet\+::\+A\+I\+::health}}\label{structoctet_1_1_a_i_a830fe8ab096f675af501eb5a86bf7b00}
+
+
+The current health of the \hyperlink{structoctet_1_1_a_i}{A\+I}. 
+
+\hypertarget{structoctet_1_1_a_i_a661a3cbb84347cd57da5a2f45ec2fbdc}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!index@{index}}
+\index{index@{index}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+A\+I\+::index}}\label{structoctet_1_1_a_i_a661a3cbb84347cd57da5a2f45ec2fbdc}
+
+
+The index of the \hyperlink{structoctet_1_1_a_i}{A\+I} in game object dynarray. 
+
+\hypertarget{structoctet_1_1_a_i_a2938e1f9b22f03013d677b42149d5d96}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!isdead@{isdead}}
+\index{isdead@{isdead}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{isdead}]{\setlength{\rightskip}{0pt plus 5cm}bool octet\+::\+A\+I\+::isdead}}\label{structoctet_1_1_a_i_a2938e1f9b22f03013d677b42149d5d96}
+
+
+the status of the \hyperlink{structoctet_1_1_a_i}{A\+I} dead or alive 
+
+\hypertarget{structoctet_1_1_a_i_a9628b67694f7928830f82bac2360b2b7}{\index{octet\+::\+A\+I@{octet\+::\+A\+I}!tempframes@{tempframes}}
+\index{tempframes@{tempframes}!octet\+::\+A\+I@{octet\+::\+A\+I}}
+\subsubsection[{tempframes}]{\setlength{\rightskip}{0pt plus 5cm}float octet\+::\+A\+I\+::tempframes}}\label{structoctet_1_1_a_i_a9628b67694f7928830f82bac2360b2b7}
+
+
+The frames lasped since the \hyperlink{structoctet_1_1_a_i}{A\+I}'s last attack. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{minecraft__wars_8h}{minecraft\+\_\+wars.\+h}\end{DoxyCompactItemize}

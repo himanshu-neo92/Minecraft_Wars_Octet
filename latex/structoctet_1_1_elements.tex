@@ -1,0 +1,144 @@
+\hypertarget{structoctet_1_1_elements}{\section{octet\+:\+:Elements Struct Reference}
+\label{structoctet_1_1_elements}\index{octet\+::\+Elements@{octet\+::\+Elements}}
+}
+
+
+The base struct for all the elements.\+Use this in the userpointer and call the derived class constructors to init this This is the object class for all the elements.  
+
+
+
+
+{\ttfamily \#include $<$minecraft\+\_\+wars.\+h$>$}
+
+Inheritance diagram for octet\+:\+:Elements\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structoctet_1_1_elements}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structoctet_1_1_elements_a72500eca591953a90acb6d66b9b426d5}{Elements} (int \+\_\+id, string \+\_\+tag, int \+\_\+index, float \+\_\+health, int \+\_\+hit\+\_\+to\+\_\+extract, vec4 \+\_\+color)
+\begin{DoxyCompactList}\small\item\em The constructor for the element struct. \end{DoxyCompactList}\item 
+bool \hyperlink{structoctet_1_1_elements_a7175c9c96fb78c7ad933ca88f8b88f84}{Got\+\_\+\+Hit} (float damage)
+\begin{DoxyCompactList}\small\item\em The ammont of damage the element has taken from the \hyperlink{structoctet_1_1_a_i}{A\+I} returns false if element has health $<$0. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structoctet_1_1_elements_ad7862925baea3ff467671233e86c6584}{id}
+\begin{DoxyCompactList}\small\item\em The I\+D of the element ie mud, stone , wood, iron. \end{DoxyCompactList}\item 
+string \hyperlink{structoctet_1_1_elements_ad7bb712671fd59dfce732441b15ed6e9}{tag}
+\begin{DoxyCompactList}\small\item\em The tag of the element. \end{DoxyCompactList}\item 
+float \hyperlink{structoctet_1_1_elements_af9cece89e171f07841b897dfb9be4eba}{health}
+\begin{DoxyCompactList}\small\item\em The current health of the element. \end{DoxyCompactList}\item 
+int \hyperlink{structoctet_1_1_elements_a33a93377f7814a339d0b4bc0d8200c02}{hit\+\_\+to\+\_\+extraxt}
+\begin{DoxyCompactList}\small\item\em The number of hits needed to extract the element. \end{DoxyCompactList}\item 
+vec4 \hyperlink{structoctet_1_1_elements_adf503621aeb69c7112453a430e39f76e}{color}
+\begin{DoxyCompactList}\small\item\em the colour to be put out on the mesh \end{DoxyCompactList}\item 
+int \hyperlink{structoctet_1_1_elements_a8d2c5872a3c685832f767505c85cf7e3}{index}
+\begin{DoxyCompactList}\small\item\em The Index of this class in Game\+Object dynarry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The base struct for all the elements.\+Use this in the userpointer and call the derived class constructors to init this This is the object class for all the elements. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structoctet_1_1_elements_a72500eca591953a90acb6d66b9b426d5}{\index{octet\+::\+Elements@{octet\+::\+Elements}!Elements@{Elements}}
+\index{Elements@{Elements}!octet\+::\+Elements@{octet\+::\+Elements}}
+\subsubsection[{Elements}]{\setlength{\rightskip}{0pt plus 5cm}octet\+::\+Elements\+::\+Elements (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+id, }
+\item[{string}]{\+\_\+tag, }
+\item[{int}]{\+\_\+index, }
+\item[{float}]{\+\_\+health, }
+\item[{int}]{\+\_\+hit\+\_\+to\+\_\+extract, }
+\item[{vec4}]{\+\_\+color}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_elements_a72500eca591953a90acb6d66b9b426d5}
+
+
+The constructor for the element struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & \+\_\+id an int this is the id of the object to define if the object is mud,wood,stone,or iron ie I\+D\+\_\+\+Object \\
+\hline
+{\em string} & \+\_\+tag is the tag of the element \\
+\hline
+{\em int} & \+\_\+index the index in the gameobejct dynarray \\
+\hline
+{\em float} & \+\_\+health the health of the element \\
+\hline
+{\em int} & \+\_\+hit\+\_\+to\+\_\+extract the number of hits neede to extract \\
+\hline
+{\em vec4} & \+\_\+color the colour to be put out on the mesh \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structoctet_1_1_elements_a7175c9c96fb78c7ad933ca88f8b88f84}{\index{octet\+::\+Elements@{octet\+::\+Elements}!Got\+\_\+\+Hit@{Got\+\_\+\+Hit}}
+\index{Got\+\_\+\+Hit@{Got\+\_\+\+Hit}!octet\+::\+Elements@{octet\+::\+Elements}}
+\subsubsection[{Got\+\_\+\+Hit}]{\setlength{\rightskip}{0pt plus 5cm}bool octet\+::\+Elements\+::\+Got\+\_\+\+Hit (
+\begin{DoxyParamCaption}
+\item[{float}]{damage}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_elements_a7175c9c96fb78c7ad933ca88f8b88f84}
+
+
+The ammont of damage the element has taken from the \hyperlink{structoctet_1_1_a_i}{A\+I} returns false if element has health $<$0. 
+
+\begin{DoxyReturn}{Returns}
+a bool true if element has some health else false 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structoctet_1_1_elements_adf503621aeb69c7112453a430e39f76e}{\index{octet\+::\+Elements@{octet\+::\+Elements}!color@{color}}
+\index{color@{color}!octet\+::\+Elements@{octet\+::\+Elements}}
+\subsubsection[{color}]{\setlength{\rightskip}{0pt plus 5cm}vec4 octet\+::\+Elements\+::color}}\label{structoctet_1_1_elements_adf503621aeb69c7112453a430e39f76e}
+
+
+the colour to be put out on the mesh 
+
+\hypertarget{structoctet_1_1_elements_af9cece89e171f07841b897dfb9be4eba}{\index{octet\+::\+Elements@{octet\+::\+Elements}!health@{health}}
+\index{health@{health}!octet\+::\+Elements@{octet\+::\+Elements}}
+\subsubsection[{health}]{\setlength{\rightskip}{0pt plus 5cm}float octet\+::\+Elements\+::health}}\label{structoctet_1_1_elements_af9cece89e171f07841b897dfb9be4eba}
+
+
+The current health of the element. 
+
+\hypertarget{structoctet_1_1_elements_a33a93377f7814a339d0b4bc0d8200c02}{\index{octet\+::\+Elements@{octet\+::\+Elements}!hit\+\_\+to\+\_\+extraxt@{hit\+\_\+to\+\_\+extraxt}}
+\index{hit\+\_\+to\+\_\+extraxt@{hit\+\_\+to\+\_\+extraxt}!octet\+::\+Elements@{octet\+::\+Elements}}
+\subsubsection[{hit\+\_\+to\+\_\+extraxt}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+Elements\+::hit\+\_\+to\+\_\+extraxt}}\label{structoctet_1_1_elements_a33a93377f7814a339d0b4bc0d8200c02}
+
+
+The number of hits needed to extract the element. 
+
+\hypertarget{structoctet_1_1_elements_ad7862925baea3ff467671233e86c6584}{\index{octet\+::\+Elements@{octet\+::\+Elements}!id@{id}}
+\index{id@{id}!octet\+::\+Elements@{octet\+::\+Elements}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+Elements\+::id}}\label{structoctet_1_1_elements_ad7862925baea3ff467671233e86c6584}
+
+
+The I\+D of the element ie mud, stone , wood, iron. 
+
+\hypertarget{structoctet_1_1_elements_a8d2c5872a3c685832f767505c85cf7e3}{\index{octet\+::\+Elements@{octet\+::\+Elements}!index@{index}}
+\index{index@{index}!octet\+::\+Elements@{octet\+::\+Elements}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+Elements\+::index}}\label{structoctet_1_1_elements_a8d2c5872a3c685832f767505c85cf7e3}
+
+
+The Index of this class in Game\+Object dynarry. 
+
+\hypertarget{structoctet_1_1_elements_ad7bb712671fd59dfce732441b15ed6e9}{\index{octet\+::\+Elements@{octet\+::\+Elements}!tag@{tag}}
+\index{tag@{tag}!octet\+::\+Elements@{octet\+::\+Elements}}
+\subsubsection[{tag}]{\setlength{\rightskip}{0pt plus 5cm}string octet\+::\+Elements\+::tag}}\label{structoctet_1_1_elements_ad7bb712671fd59dfce732441b15ed6e9}
+
+
+The tag of the element. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{minecraft__wars_8h}{minecraft\+\_\+wars.\+h}\end{DoxyCompactItemize}

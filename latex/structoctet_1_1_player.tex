@@ -1,0 +1,220 @@
+\hypertarget{structoctet_1_1_player}{\section{octet\+:\+:Player Struct Reference}
+\label{structoctet_1_1_player}\index{octet\+::\+Player@{octet\+::\+Player}}
+}
+
+
+The \hyperlink{structoctet_1_1_player}{Player} struct contains all the relivent info about the player This is the object class for the player.  
+
+
+
+
+{\ttfamily \#include $<$minecraft\+\_\+wars.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structoctet_1_1_player_a8de855145bcf188d660ff1d9d4246753}{Player} ()
+\begin{DoxyCompactList}\small\item\em The constructor for the player struct. \end{DoxyCompactList}\item 
+bool \hyperlink{structoctet_1_1_player_a13aa8303245371b0fe4a27dedfb4c407}{Got\+\_\+\+Hit} (float damage)
+\begin{DoxyCompactList}\small\item\em The ammont of damage the player has taken from the \hyperlink{structoctet_1_1_a_i}{A\+I} returns false if player dies. \end{DoxyCompactList}\item 
+void \hyperlink{structoctet_1_1_player_a81bdc1d052b577d6f903863e1b75d985}{Element\+\_\+\+Picked} (int element\+\_\+number, int element\+\_\+index)
+\begin{DoxyCompactList}\small\item\em used to manage the elemets\+\_\+held and the I\+D of those elements when the player picks up an element \end{DoxyCompactList}\item 
+int \hyperlink{structoctet_1_1_player_ae4042f98a122ecf6cb43b43ef11452d7}{Element\+\_\+\+Placed} (int element\+\_\+number)
+\begin{DoxyCompactList}\small\item\em used to manage the elemets\+\_\+held and the I\+D of those elements when the player places an element \end{DoxyCompactList}\item 
+void \hyperlink{structoctet_1_1_player_ab1d777f5bee592f8cb1a733538fe1e5e}{Ammo\+\_\+\+Picked} (int weapon\+\_\+nu, int amount)
+\begin{DoxyCompactList}\small\item\em used to manage the ammo when the player picks up ammo for a weapon \end{DoxyCompactList}\item 
+bool \hyperlink{structoctet_1_1_player_a3c5f8a869d270b1a91830f2543f43901}{Weapon\+\_\+fired} (int weapon\+\_\+nu)
+\begin{DoxyCompactList}\small\item\em used to manage the ammo when the player fires a weapon \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{structoctet_1_1_player_a2bdd50ed81043241cc239cd858e6fabb}{health}
+\begin{DoxyCompactList}\small\item\em The current health of the player. \end{DoxyCompactList}\item 
+int \hyperlink{structoctet_1_1_player_a52efa1d95f5bdf41f0fe427339b55801}{elements\+\_\+held} \mbox{[}\hyperlink{minecraft__wars_8h_a6e7de24a0c77478471e22ff642696cba}{Nu\+\_\+\+Elements}\mbox{]}
+\begin{DoxyCompactList}\small\item\em The current elements held by the player. \end{DoxyCompactList}\item 
+dynarray$<$ int $>$ \hyperlink{structoctet_1_1_player_a7d368ab73cce8c40a836e0b14a858c6c}{elements\+\_\+held\+\_\+ids} \mbox{[}\hyperlink{minecraft__wars_8h_a6e7de24a0c77478471e22ff642696cba}{Nu\+\_\+\+Elements}\mbox{]}
+\begin{DoxyCompactList}\small\item\em The I\+Ds of the current elements held by the player. \end{DoxyCompactList}\item 
+int \hyperlink{structoctet_1_1_player_a2076979db0f255de49747f1cfc0d2c56}{ammo} \mbox{[}\hyperlink{minecraft__wars_8h_acb18bb521c73ece6bfc2790c9bb0a83a}{Nu\+\_\+\+Weapon}\mbox{]}
+\begin{DoxyCompactList}\small\item\em The ammon for the weapon held by the player. \end{DoxyCompactList}\item 
+float \hyperlink{structoctet_1_1_player_aea38c028487f7b6049478fa68cc9a493}{weapon\+\_\+damage} \mbox{[}\hyperlink{minecraft__wars_8h_acb18bb521c73ece6bfc2790c9bb0a83a}{Nu\+\_\+\+Weapon}\mbox{]}
+\begin{DoxyCompactList}\small\item\em The damage for the weapon held by the player. \end{DoxyCompactList}\item 
+int \hyperlink{structoctet_1_1_player_a2ec6d4e522ec40035a3ab5a3389147fe}{current\+\_\+element}
+\begin{DoxyCompactList}\small\item\em The current element that the player can place. \end{DoxyCompactList}\item 
+int \hyperlink{structoctet_1_1_player_a20425ffb04a95dd2403edf613aa3959a}{current\+\_\+weapon}
+\begin{DoxyCompactList}\small\item\em The current weapon that the player can use. \end{DoxyCompactList}\item 
+int \hyperlink{structoctet_1_1_player_abcbda97162f67c67328c6578e9bafe29}{index}
+\begin{DoxyCompactList}\small\item\em The index of the player in game object dynarray. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{structoctet_1_1_player}{Player} struct contains all the relivent info about the player This is the object class for the player. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structoctet_1_1_player_a8de855145bcf188d660ff1d9d4246753}{\index{octet\+::\+Player@{octet\+::\+Player}!Player@{Player}}
+\index{Player@{Player}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{Player}]{\setlength{\rightskip}{0pt plus 5cm}octet\+::\+Player\+::\+Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_player_a8de855145bcf188d660ff1d9d4246753}
+
+
+The constructor for the player struct. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structoctet_1_1_player_ab1d777f5bee592f8cb1a733538fe1e5e}{\index{octet\+::\+Player@{octet\+::\+Player}!Ammo\+\_\+\+Picked@{Ammo\+\_\+\+Picked}}
+\index{Ammo\+\_\+\+Picked@{Ammo\+\_\+\+Picked}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{Ammo\+\_\+\+Picked}]{\setlength{\rightskip}{0pt plus 5cm}void octet\+::\+Player\+::\+Ammo\+\_\+\+Picked (
+\begin{DoxyParamCaption}
+\item[{int}]{weapon\+\_\+nu, }
+\item[{int}]{amount}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_player_ab1d777f5bee592f8cb1a733538fe1e5e}
+
+
+used to manage the ammo when the player picks up ammo for a weapon 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & weapon\+\_\+nu The I\+D for the weapon that the player has picked the ammo for \\
+\hline
+{\em int} & amount the amount of ammo he has picked \\
+\hline
+\end{DoxyParams}
+\hypertarget{structoctet_1_1_player_a81bdc1d052b577d6f903863e1b75d985}{\index{octet\+::\+Player@{octet\+::\+Player}!Element\+\_\+\+Picked@{Element\+\_\+\+Picked}}
+\index{Element\+\_\+\+Picked@{Element\+\_\+\+Picked}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{Element\+\_\+\+Picked}]{\setlength{\rightskip}{0pt plus 5cm}void octet\+::\+Player\+::\+Element\+\_\+\+Picked (
+\begin{DoxyParamCaption}
+\item[{int}]{element\+\_\+number, }
+\item[{int}]{element\+\_\+index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_player_a81bdc1d052b577d6f903863e1b75d985}
+
+
+used to manage the elemets\+\_\+held and the I\+D of those elements when the player picks up an element 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & element\+\_\+number The I\+D of the element the player picked \\
+\hline
+{\em int} & element\+\_\+index The Index of that element in the game object dynarray \\
+\hline
+\end{DoxyParams}
+\hypertarget{structoctet_1_1_player_ae4042f98a122ecf6cb43b43ef11452d7}{\index{octet\+::\+Player@{octet\+::\+Player}!Element\+\_\+\+Placed@{Element\+\_\+\+Placed}}
+\index{Element\+\_\+\+Placed@{Element\+\_\+\+Placed}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{Element\+\_\+\+Placed}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+Player\+::\+Element\+\_\+\+Placed (
+\begin{DoxyParamCaption}
+\item[{int}]{element\+\_\+number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_player_ae4042f98a122ecf6cb43b43ef11452d7}
+
+
+used to manage the elemets\+\_\+held and the I\+D of those elements when the player places an element 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & element\+\_\+number The I\+D of the element the player picked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an int the index of the element in the dynarray 
+\end{DoxyReturn}
+\hypertarget{structoctet_1_1_player_a13aa8303245371b0fe4a27dedfb4c407}{\index{octet\+::\+Player@{octet\+::\+Player}!Got\+\_\+\+Hit@{Got\+\_\+\+Hit}}
+\index{Got\+\_\+\+Hit@{Got\+\_\+\+Hit}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{Got\+\_\+\+Hit}]{\setlength{\rightskip}{0pt plus 5cm}bool octet\+::\+Player\+::\+Got\+\_\+\+Hit (
+\begin{DoxyParamCaption}
+\item[{float}]{damage}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_player_a13aa8303245371b0fe4a27dedfb4c407}
+
+
+The ammont of damage the player has taken from the \hyperlink{structoctet_1_1_a_i}{A\+I} returns false if player dies. 
+
+\begin{DoxyReturn}{Returns}
+a bool true if player is alive false if dead 
+\end{DoxyReturn}
+\hypertarget{structoctet_1_1_player_a3c5f8a869d270b1a91830f2543f43901}{\index{octet\+::\+Player@{octet\+::\+Player}!Weapon\+\_\+fired@{Weapon\+\_\+fired}}
+\index{Weapon\+\_\+fired@{Weapon\+\_\+fired}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{Weapon\+\_\+fired}]{\setlength{\rightskip}{0pt plus 5cm}bool octet\+::\+Player\+::\+Weapon\+\_\+fired (
+\begin{DoxyParamCaption}
+\item[{int}]{weapon\+\_\+nu}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structoctet_1_1_player_a3c5f8a869d270b1a91830f2543f43901}
+
+
+used to manage the ammo when the player fires a weapon 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & weapon\+\_\+nu The I\+D for the weapon that the player has picked the ammo for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a bool true if the player has ammo to fire that weapon false if he is out of ammo 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structoctet_1_1_player_a2076979db0f255de49747f1cfc0d2c56}{\index{octet\+::\+Player@{octet\+::\+Player}!ammo@{ammo}}
+\index{ammo@{ammo}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{ammo}]{\setlength{\rightskip}{0pt plus 5cm}octet\+::\+Player\+::ammo\mbox{[}{\bf Nu\+\_\+\+Weapon}\mbox{]}}}\label{structoctet_1_1_player_a2076979db0f255de49747f1cfc0d2c56}
+
+
+The ammon for the weapon held by the player. 
+
+\hypertarget{structoctet_1_1_player_a2ec6d4e522ec40035a3ab5a3389147fe}{\index{octet\+::\+Player@{octet\+::\+Player}!current\+\_\+element@{current\+\_\+element}}
+\index{current\+\_\+element@{current\+\_\+element}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{current\+\_\+element}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+Player\+::current\+\_\+element}}\label{structoctet_1_1_player_a2ec6d4e522ec40035a3ab5a3389147fe}
+
+
+The current element that the player can place. 
+
+\hypertarget{structoctet_1_1_player_a20425ffb04a95dd2403edf613aa3959a}{\index{octet\+::\+Player@{octet\+::\+Player}!current\+\_\+weapon@{current\+\_\+weapon}}
+\index{current\+\_\+weapon@{current\+\_\+weapon}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{current\+\_\+weapon}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+Player\+::current\+\_\+weapon}}\label{structoctet_1_1_player_a20425ffb04a95dd2403edf613aa3959a}
+
+
+The current weapon that the player can use. 
+
+\hypertarget{structoctet_1_1_player_a52efa1d95f5bdf41f0fe427339b55801}{\index{octet\+::\+Player@{octet\+::\+Player}!elements\+\_\+held@{elements\+\_\+held}}
+\index{elements\+\_\+held@{elements\+\_\+held}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{elements\+\_\+held}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+Player\+::elements\+\_\+held\mbox{[}{\bf Nu\+\_\+\+Elements}\mbox{]}}}\label{structoctet_1_1_player_a52efa1d95f5bdf41f0fe427339b55801}
+
+
+The current elements held by the player. 
+
+\hypertarget{structoctet_1_1_player_a7d368ab73cce8c40a836e0b14a858c6c}{\index{octet\+::\+Player@{octet\+::\+Player}!elements\+\_\+held\+\_\+ids@{elements\+\_\+held\+\_\+ids}}
+\index{elements\+\_\+held\+\_\+ids@{elements\+\_\+held\+\_\+ids}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{elements\+\_\+held\+\_\+ids}]{\setlength{\rightskip}{0pt plus 5cm}dynarray$<$ int $>$ octet\+::\+Player\+::elements\+\_\+held\+\_\+ids\mbox{[}{\bf Nu\+\_\+\+Elements}\mbox{]}}}\label{structoctet_1_1_player_a7d368ab73cce8c40a836e0b14a858c6c}
+
+
+The I\+Ds of the current elements held by the player. 
+
+\hypertarget{structoctet_1_1_player_a2bdd50ed81043241cc239cd858e6fabb}{\index{octet\+::\+Player@{octet\+::\+Player}!health@{health}}
+\index{health@{health}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{health}]{\setlength{\rightskip}{0pt plus 5cm}float octet\+::\+Player\+::health}}\label{structoctet_1_1_player_a2bdd50ed81043241cc239cd858e6fabb}
+
+
+The current health of the player. 
+
+\hypertarget{structoctet_1_1_player_abcbda97162f67c67328c6578e9bafe29}{\index{octet\+::\+Player@{octet\+::\+Player}!index@{index}}
+\index{index@{index}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}int octet\+::\+Player\+::index}}\label{structoctet_1_1_player_abcbda97162f67c67328c6578e9bafe29}
+
+
+The index of the player in game object dynarray. 
+
+\hypertarget{structoctet_1_1_player_aea38c028487f7b6049478fa68cc9a493}{\index{octet\+::\+Player@{octet\+::\+Player}!weapon\+\_\+damage@{weapon\+\_\+damage}}
+\index{weapon\+\_\+damage@{weapon\+\_\+damage}!octet\+::\+Player@{octet\+::\+Player}}
+\subsubsection[{weapon\+\_\+damage}]{\setlength{\rightskip}{0pt plus 5cm}float octet\+::\+Player\+::weapon\+\_\+damage\mbox{[}{\bf Nu\+\_\+\+Weapon}\mbox{]}}}\label{structoctet_1_1_player_aea38c028487f7b6049478fa68cc9a493}
+
+
+The damage for the weapon held by the player. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{minecraft__wars_8h}{minecraft\+\_\+wars.\+h}\end{DoxyCompactItemize}
